@@ -14,6 +14,24 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
   <link rel="stylesheet" href="static/css/style.css">
+
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Sanchez" rel="stylesheet">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+  integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+  crossorigin=""/>
+
+  <!-- Icons -->
+  <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="static/css/leaflet.extra-markers.min.css">
+
+  <!-- map CSS -->
+  <link rel="stylesheet" type="text/css" href="static/css/stylem.css">
+
+
 </head>
 
 <body>
@@ -52,31 +70,42 @@
               </div>
             </div>
           </aside>
-        </div>
-        <!-- <div class="col-md-10">
-          <div id="table-area" class="">
-            <h1 class="text-center loader" id="loader">Loading...</h1>
-            <!-- <table id="ufo-table" class="table table-striped">
-              <thead>
-                <tr>
-                  <th class="table-head">Date</th>
-                  <th class="table-head">City</th>
-                  <th class="table-head">State</th>
-                  <th class="table-head">Country</th>
-                  <th class="table-head">Shape</th>
-                  <th class="table-head">Duration</th>
-                  <th class="table-head">Comments</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-          </div>
-        </div> -->
-      </div>
-    </div>
+
   </div>
+  
+
+
+  <div id="map-area">
+      <p>hi</p>
+  </div>
+
+  <div id="map">
+      <p>hi</p>
+  </div>
+
+  <!-- D3 -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script> -->
+
+  <!-- MomentJS -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
+   
+  <!-- Leaflet JavaScript -->
+   <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+   integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+   crossorigin=""></script>
+  
+   <!-- Icons -->
+  <script src="{{ url_for('static', filename='js/leaflet.extra-markers.min.js') }}"></script>
+  
+  <!-- polyfill.io is library for using newer JavaScript features in older browers (such as Object.assign) -->
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+  
+  <!-- API Key -->
+  <script src="{{ url_for('static', filename='js/config.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/logic.js') }}"></script>
   <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
 </body>
 
 </html>

@@ -44,15 +44,17 @@ def loadData():
     df=df.rename(columns={"level_8":"month_year",0:"Price_Persq","Population Rank":"PopulationRank"})
     # separate month-year to two columns
     map_month_to_num = {'Jan':1, 'Feb':2, 'Mar':3, 'Apr':4, 'May':5,'Jun':6,'Jul':7,'Aug':8,'Sep':9,'Oct':10,'Nov':11,'Dec':12}
-    df["month"]=df["month_year"].apply(lambda x: x[:3]).map(map_month_to_num)
-    df["Year"]=df["month_year"].apply(lambda x: "20"+ x[4:]).astype(int)
+    df["Month"]=df["month_year"].apply(lambda x: x[3:]).map(map_month_to_num)
+    df["Year"]=df["month_year"].apply(lambda x: "20"+ x[:2]).astype(int)
     # filter out the year before 2012
     df= df[df['Year']>=2012]
     #df.fillna(0,inplace = True)
     df=df.drop(["month_year"],axis=1)
     return df
 
-df=loadData()   
+df=loadData() 
+engine=create_engine("sqlite:///db.sqlite")
+df.to_sql("pricepersqft",con=engine,if_exists="replace")
 
 @app.route("/")
 def index():
@@ -70,10 +72,21 @@ def filterPricePerSqft():
         return tempdf.to_json(orient='records')
     return jsonify([])
 
-@app.route("/yearlyprice")
+@app.route("/yearlyprice",methods=['GET','POST'])
 def yearlyprice():
-    ave_yearly_price=df.groupby(["City","Year"])["Price_Persq"].mean().reset_index().rename(columns={"Price_Persq":"AvePricePersq"}).sort_values(by="AvePricePersq")
-    return(ave_yearly_price.to_json(orient='records'))
+    tempdf2=df.copy()
+    if request.data:
+        filterdict = json.loads(request.data)
+
+        tempdf2=tempdf2[tempdf2["Year"].astype(str).str.upper()== filterdict["Year"].upper()]
+
+    ave_yearly_price=tempdf2.groupby(["City","Year","State"])[["Price_Persq","Lat","Lon"]]\
+                            .agg({'Price_Persq':'mean','Lat':'first','Lon':'first'}).reset_index()\
+                            .rename(columns={"Price_Persq":"AvePricePersq"})\
+                            .sort_values(by="AvePricePersq",ascending=False)
+    highest20=ave_yearly_price[:20]
+    print(highest20)
+    return(highest20.to_json(orient='records'))
 
 
  

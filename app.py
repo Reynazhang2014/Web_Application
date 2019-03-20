@@ -18,53 +18,32 @@ app=Flask(__name__)
 # Database Setup
 #################################################
 
-# app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db/bellybutton.sqlite"
-# db = SQLAlchemy(app)
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db/data.sqlite"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"]=False
+db = SQLAlchemy(app)
 
 # # reflect an existing database into a new model
-# Base = automap_base()
+Base = automap_base()
 # # reflect the tables
-# Base.prepare(db.engine, reflect=True)
+Base.prepare(db.engine, reflect=True)
+print(Base.classes.keys())
+# Save references to each table
+city_rent_price=Base.classes.city_rent_price
+stmt = db.session.query(city_rent_price).statement
+df= pd.read_sql_query(stmt, db.session.bind)
 
-# # Save references to each table
-# Samples_Metadata = Base.classes.sample_metadata
-# Samples = Base.classes.samples
-def loadData():
-    df=pd.read_csv("db/pricepersqft.csv") 
-    df=df.set_index(["City Code"
-                    ,"City"
-                    ,"Lat","Lon"
-                    ,"Metro"
-                    ,"County"
-                    ,"State"
-                    ,"Population Rank"])
-    # statck the columns of year and month into one column 
-    # and add a column to indicate month-year                
-    df=df.stack().reset_index()
-    df=df.rename(columns={"level_8":"month_year",0:"Price_Persq","Population Rank":"PopulationRank"})
-    # separate month-year to two columns
-    map_month_to_num = {'Jan':1, 'Feb':2, 'Mar':3, 'Apr':4, 'May':5,'Jun':6,'Jul':7,'Aug':8,'Sep':9,'Oct':10,'Nov':11,'Dec':12}
-    df["Month"]=df["month_year"].apply(lambda x: x[3:]).map(map_month_to_num)
-    df["Year"]=df["month_year"].apply(lambda x: "20"+ x[:2]).astype(int)
-    # filter out the year before 2012
-    df= df[df['Year']>=2012]
-    #df.fillna(0,inplace = True)
-    df=df.drop(["month_year"],axis=1)
-    return df
 
-df=loadData() 
-engine=create_engine("sqlite:///db.sqlite")
-df.to_sql("pricepersqft",con=engine,if_exists="replace")
 
 @app.route("/")
 def index():
     """Return the homepage."""
     return render_template("index.html")
 
-@app.route("/pricepersqft",methods=['GET','POST'])
-def filterPricePerSqft():
+@app.route("/rent",methods=['GET','POST'])
+def filterRent():
     print(request.data)
     tempdf=df
+    print(tempdf.head())
     if request.data:
         filterdict = json.loads(request.data)
         for k,v in filterdict.items():
@@ -72,9 +51,9 @@ def filterPricePerSqft():
         return tempdf.to_json(orient='records')
     return jsonify([])
 
-@app.route("/yearlyprice",methods=['GET','POST'])
-def yearlyprice():
-    tempdf2=df.copy()
+@app.route("/yearlypricepersqft",methods=['GET','POST'])
+def yearlypricepersqft():
+    tempdf2= df
     if request.data:
         filterdict = json.loads(request.data)
 
@@ -87,6 +66,10 @@ def yearlyprice():
     highest20=ave_yearly_price[:20]
     print(highest20)
     return(highest20.to_json(orient='records'))
+
+
+
+
 
 
  

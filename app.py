@@ -25,6 +25,7 @@ db = SQLAlchemy(app)
 # # reflect an existing database into a new model
 Base = automap_base()
 # # reflect the tables
+<<<<<<< HEAD
 Base.prepare(db.engine, reflect=True)
 print(Base.classes.keys())
 # Save references to each table
@@ -33,6 +34,47 @@ stmt = db.session.query(city_rent_price).statement
 df= pd.read_sql_query(stmt, db.session.bind)
 
 
+=======
+# Base.prepare(db.engine, reflect=True)
+
+# # Save references to each table
+# Samples_Metadata = Base.classes.sample_metadata
+# Samples = Base.classes.samples
+def loadData():
+    
+    df=pd.read_csv("db/pricepersqft1.csv") 
+    cities = pd.read_csv('./db/uscities.csv')
+    df = pd.merge(df,cities,on = ['City','State'],how = 'left')
+    df.drop(columns=['County_y'],inplace = True)
+    df.rename(columns={'County_x':'County'},inplace = True)
+    df=df.set_index(["City Code"
+                    ,"City"
+                    ,"Lat",
+                    "Lon"
+                    ,"Metro"
+                    ,"County"
+                    ,"State"
+                    ,"Population Rank"
+                    ,'Population'
+                    ,'Density'])
+    # statck the columns of year and month into one column 
+    # and add a column to indicate month-year                
+    df=df.stack().reset_index()
+    df=df.rename(columns={"level_10":"month_year",0:"Price_Persq","Population Rank":"PopulationRank"})
+    # separate month-year to two columns
+    map_month_to_num = {'Jan':1, 'Feb':2, 'Mar':3, 'Apr':4, 'May':5,'Jun':6,'Jul':7,'Aug':8,'Sep':9,'Oct':10,'Nov':11,'Dec':12}
+    df["Month"]=df["month_year"].apply(lambda x: x[3:]).map(map_month_to_num)
+    df["Year"]=df["month_year"].apply(lambda x: "20"+ x[:2]).astype(int)
+    # filter out the year before 2012
+    df= df[df['Year']>=2012]
+    #df.fillna(0,inplace = True)
+    df=df.drop(["month_year"],axis=1)
+    return df
+
+df=loadData() 
+engine=create_engine("sqlite:///db.sqlite")
+df.to_sql("pricepersqft",con=engine,if_exists="replace")
+>>>>>>> f8362763e69bb5638b990fbf6b3bd36644533b4c
 
 @app.route("/")
 def index():

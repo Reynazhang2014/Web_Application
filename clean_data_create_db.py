@@ -25,6 +25,7 @@ map_month_to_num = {'Jan':1,
 pricepersq = pd.read_csv('./db/pricepersqft1.csv')
 price = pd.read_csv('./db/price.csv')
 cities = pd.read_csv('./db/uscities.csv')
+happy = pd.read_excel('./db/happiest_cities.xlsx')
 price.set_index(['City Code','City','Lat','Lon','Metro','County','State','Population Rank'],inplace = True)
 pricenew1 = price.stack(dropna = False).reset_index() 
 merged = pd.merge(pricepersq,cities,on = ['City','State'],how = 'left')
@@ -50,8 +51,8 @@ price_agg = pd.merge(price_tot,pricenew, on = ['City Code','month','year'],how =
 
 
 # filter out the year before 2012
-df = price_agg[price_agg['year']>=2012]
-df = df[['City Code','City','Metro','County','State','Lat','Lon','Population Rank',
+df1 = price_agg[price_agg['year']>=2012]
+df1 = df1[['City Code','City','Metro','County','State','Lat','Lon','Population Rank',
         'Population','Density','month','year','price_persq','price']].rename(columns = {'City Code':'CityCode',
                                                                          'Population Rank': 'PopulationRank',
                                                                         'price':'Price_Total',
@@ -59,6 +60,14 @@ df = df[['City Code','City','Metro','County','State','Lat','Lon','Population Ran
                                                                         'month':'Month',
                                                                         'year':'Year'})
 #df.fillna(0,inplace = True)
+##############################################################################################
+#merge with the happiest cities ranking dat
+happy = pd.read_excel('./db/happiest_cities.xlsx')
+happy.rename(columns = {'City':'City_St'},inplace = True)
+happy['City'] = happy['City_St'].str.split(', ').apply(lambda x: x[0])
+happy['State'] = happy['City_St'].str.split(', ').apply(lambda x: x[1])
+happy = happy[['Total Score','City','State']].rename(columns = {'Total Score':'HappiestRank'})
+df = pd.merge(df1,happy, on = ['City','State'], how = 'left')
 
 #store date frame to sqlite
 engine=create_engine("sqlite:///db/data.sqlite")
@@ -82,7 +91,8 @@ city_rent_table='''CREATE TABLE  city_rent_price ("index" BIGINT AUTO_INCREMENT 
                                             "Month" BIGINT, 
                                             "Year" BIGINT,
                                             "Price_Persq" FLOAT,
-                                            "Price_Total" FLOAT
+                                            "Price_Total" FLOAT,
+                                            "HappiestRank" FLOAT
                                             );
                                             '''
 engine.execute(city_rent_table)
@@ -94,3 +104,4 @@ df.to_sql("city_rent_price",con=engine,if_exists="append")
 #print(engine.execute("SELECT * FROM city_rent_price").limit(2000))
 
 ##############################################################################################
+

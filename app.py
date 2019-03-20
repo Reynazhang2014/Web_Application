@@ -59,10 +59,10 @@ def yearlyrent():
 
         tempdf2=tempdf2[tempdf2["Year"].astype(str).str.upper()== filterdict["Year"].upper()]
 
-    ave_yearly_price=tempdf2.groupby(["City","Year","State","County","Metro"])[["Price_Persq","Lat","Lon","Density","Population","PopulationRank","Price_Total"]]\
+    ave_yearly_price=tempdf2.groupby(["City","Year","State","County","Metro"])[["Price_Persq","Lat","Lon","Density","Population","PopulationRank","Price_Total","HappiestRank"]]\
                             .agg({'Price_Persq':'mean','Price_Total':'mean',\
                                 'Lat':'first','Lon':'first',"Density":'first',\
-                                "Population":'first',"PopulationRank":'first'})\
+                                "Population":'first',"PopulationRank":'first',"HappiestRank":"first"})\
                             .reset_index()\
                             .rename(columns={"Price_Persq":"AvePricePersq","Price_Total":"AvePriceTotal"})\
                             .sort_values(by="AvePricePersq",ascending=False)

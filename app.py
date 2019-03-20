@@ -30,18 +30,26 @@ app=Flask(__name__)
 # Samples_Metadata = Base.classes.sample_metadata
 # Samples = Base.classes.samples
 def loadData():
-    df=pd.read_csv("db/pricepersqft.csv") 
+    
+    df=pd.read_csv("db/pricepersqft1.csv") 
+    cities = pd.read_csv('./db/uscities.csv')
+    df = pd.merge(df,cities,on = ['City','State'],how = 'left')
+    df.drop(columns=['County_y'],inplace = True)
+    df.rename(columns={'County_x':'County'},inplace = True)
     df=df.set_index(["City Code"
                     ,"City"
-                    ,"Lat","Lon"
+                    ,"Lat",
+                    "Lon"
                     ,"Metro"
                     ,"County"
                     ,"State"
-                    ,"Population Rank"])
+                    ,"Population Rank"
+                    ,'Population'
+                    ,'Density'])
     # statck the columns of year and month into one column 
     # and add a column to indicate month-year                
     df=df.stack().reset_index()
-    df=df.rename(columns={"level_8":"month_year",0:"Price_Persq","Population Rank":"PopulationRank"})
+    df=df.rename(columns={"level_10":"month_year",0:"Price_Persq","Population Rank":"PopulationRank"})
     # separate month-year to two columns
     map_month_to_num = {'Jan':1, 'Feb':2, 'Mar':3, 'Apr':4, 'May':5,'Jun':6,'Jul':7,'Aug':8,'Sep':9,'Oct':10,'Nov':11,'Dec':12}
     df["Month"]=df["month_year"].apply(lambda x: x[3:]).map(map_month_to_num)

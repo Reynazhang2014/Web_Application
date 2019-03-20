@@ -58,7 +58,7 @@ df = df[['City Code','City','Metro','County','State','Lat','Lon','Population Ran
                                                                         'price_persq':'Price_Persq',
                                                                         'month':'Month',
                                                                         'year':'Year'})
-df.fillna(0,inplace = True)
+#df.fillna(0,inplace = True)
 
 #store date frame to sqlite
 engine=create_engine("sqlite:///db/data.sqlite")

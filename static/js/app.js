@@ -3,14 +3,18 @@ let avePrice=[];
 // Keep Track of all filters
 var priceFilters = {"Year":"2017","City":"Irvine"};
 console.log(priceFilters);
-
+var map;
 
 function plots(data){
-    console.log(data);
+  console.log("Filtered data:");  
+  console.log(data);
 
 }
 function plotHigh20(data){
     console.log('test');
+    if(map != null){
+      map.remove();
+    }
 
   //max zoom allowed set to 18 which means 15 additional clicks after 3
 
@@ -36,12 +40,15 @@ function plotHigh20(data){
   //Overlays
   //layerGroup is an empty list or container we can add things to like markers
   var cities = L.layerGroup();
+
   data.forEach( row =>{
     var m = L.marker([row.Lat,row.Lon]).bindPopup(
       `<h3> City: ${row.City}</h3> <hr> 
+      <h4> $ monthly rent: ${row.AvePriceTotal} </h4>
       <h4> $ per sqft: ${row.AvePricePersq} </h4>`);
     cities.addLayer(m);
   })
+
 
 
   //can also create layers in list or array
@@ -61,10 +68,10 @@ function plotHigh20(data){
   };
 
   //Map
-  var mymap = L.map('map',
+  map = L.map('map_high20',
       {'layers': [street, cities, cities2]}).setView([37.8, -96], 4);
 
-  L.control.layers(backgroundLayers, overlayLayers).addTo(mymap);
+  L.control.layers(backgroundLayers, overlayLayers).addTo(map);
 
   //Legend
   var legend = L.control({position: 'bottomright'});
@@ -73,8 +80,8 @@ function plotHigh20(data){
 
       var div = L.DomUtil.create('div', 'info legend');
 
-      div.innerHTML = `<p><i style="background:darkred"></i><p>Legend 1</p>
-                      <p><i style="background:red"></i>Legend 2<p/p>`;
+      div.innerHTML = `<p><i style="background:darkred"></i>Legend 1</p>
+                      <p><i style="background:red"></i>Legend 2</p>`;
           
       // loop through our density intervals and generate a label with a colored square for each interval
       
@@ -82,7 +89,7 @@ function plotHigh20(data){
       return div;
   };
 
-  legend.addTo(mymap);
+  legend.addTo(map);
 
 }
 
@@ -91,11 +98,11 @@ function getData() {
     console.log("running getData")
     
     //console.log(filteredData);
-    d3.json('/rent', {method: 'POST', body: JSON.stringify(priceFilters)})
+    d3.json('/monthlyrent', {method: 'POST', body: JSON.stringify(priceFilters)})
     .then(data => plots(data));
     
-    // d3.json('/yearlyprice', {method: 'POST', body: JSON.stringify(priceFilters)})
-    // .then(data => plotHigh20(data));
+    d3.json('/yearlyrent', {method: 'POST', body: JSON.stringify(priceFilters)})
+    .then(data => plotHigh20(data));
 
     
   }

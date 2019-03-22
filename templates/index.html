@@ -75,16 +75,22 @@ nav
 
   <!-- Old Services / New Happiest Cities Table -->
   <section id="services" style="background-color: whitesmoke">
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-12 text-center">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-10 text-center">
           <h2 class="section-heading text-uppercase">Happiest Cities in the U.S.*</h2>
           <h3 class="section-subheading text-muted">Find out where the happiest cities to live in America are located and click City Info menu above to find out how much it costs to live there</h3>
         </div>
+        <div class="col-lg-1">
+        </div>
       </div>
       <div class="row text-center">
-        <div class="col-md-12">
-            <table id="happiest_table" class="display" style="width:100%">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-10">
+          <table id="happiest_table" class="display" style="width:100%">
                 <thead>
                     <tr>
                         <th>Overall Rank (1=best)</th>
@@ -1563,26 +1569,10 @@ nav
                       <th>'Community and Environment'Rank</th>
                     </tr>
                 </tfoot>
-            </table>
-          
+          </table>
         </div>
-        
-        <!-- <div class="col-md-4">
-          <span class="fa-stack fa-4x">
-            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
-          </span>
-          <h4 class="service-heading">Responsive Design</h4>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-        </div>
-        <div class="col-md-4">
-          <span class="fa-stack fa-4x">
-            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
-          </span>
-          <h4 class="service-heading">Web Security</h4>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-        </div> -->
+        <div class="col-md-1">
+        </div>  
       </div>
     </div>
   </section>
@@ -1680,33 +1670,30 @@ nav
             <h4>Window</h4>
             <p class="text-muted">Photography</p>
           </div>
-        </div> -->
-      </div>
+        </div>
+      </div> -->
     </div>
   </section>
 
   <!-- Old About/ New Map -->
-  <section id="about">
-    <div class="container">
+  <section id="maps">
+    <div class="container-fluid">
       <div class="row">
         <div class="col-lg-12 text-center">
           <h2 class="section-heading text-uppercase">Map</h2>
           <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-          <div class="wrapper">
-              <div class="container">
-                  <div id="map-happinessvsren">
-                      <p>hi</p>
-                  </div>
-                  <div id="map-area">
-                      <p>hi</p>
-                  </div>
-              </div>  
-          </div>    
-
-
-
-
+        </div>  
+      </div> 
+      <div class="row text-center">
+        <div class="col-md-1">
         </div>
+        <div class="col-md-10">
+          <div id="map-filtereddata">
+                  <p>map-filtereddatat</p>
+          </div>
+        </div>
+        <div class="col-md-1">
+        </div>  
       </div>
       <!-- <div class="row">
         <div class="col-lg-12">
@@ -1776,7 +1763,6 @@ nav
             </li>
           </ul>
         </div> -->
-      </div>
     </div>
   </section>
 
@@ -1792,7 +1778,8 @@ nav
       <div class="row">
         <div class="col-sm-4">
           <div class="team-member">
-            <img class="mx-auto rounded-circle" src="static/img/team/1.jpg" alt="">
+            <!-- <img class="mx-auto rounded-circle" src="static/img/team/1.jpg" alt=""> -->
+            <img style="-webkit-user-select: none;" src="https://media.licdn.com/dms/image/C4E03AQFRvCRRpkaMNg/profile-displayphoto-shrink_200_200/0?e=1558569600&amp;v=beta&amp;t=8D7SMIn7smlwaFcsK4aGyGd5S7JLultL1CuzmmN-Jbg">
             <h4>Mina Abad</h4>
             <p class="text-muted">Lead Developer</p>
             <ul class="list-inline social-buttons">
@@ -1840,7 +1827,8 @@ nav
         </div>
         <div class="col-sm-4">
           <div class="team-member">
-            <img class="mx-auto rounded-circle" src="static/img/team/3.jpg" alt="">
+            <!-- <img class="mx-auto rounded-circle" src="static/img/team/chris.jpg" alt=""> -->
+            <img src="https://media.licdn.com/dms/image/C4D03AQHZaesaUBXPzw/profile-displayphoto-shrink_800_800/0?e=1558569600&amp;v=beta&amp;t=MsbTgB5JiCAB0VYnJkApdg54AjnfvJRAcwWgJlgAUIg" class="pv-member-photo-modal__image pv-member-photo-modal__profile-image" alt="Reyna Zhang">
             <h4>Reyna Zhang</h4>
             <p class="text-muted">Lead Data Analyst</p>
             <ul class="list-inline social-buttons">
@@ -1872,7 +1860,7 @@ nav
   </section>
 
   <!-- Clients -->
-  <section class="py-5">
+  <!-- <section class="py-5">
     <div class="container">
       <div class="row">
         <div class="col-md-3 col-sm-6">
@@ -1897,7 +1885,7 @@ nav
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- Footer -->
   <footer>
@@ -1942,7 +1930,7 @@ nav
   <!-- Portfolio Modals -->
 
   <!-- Modal 1 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+  <!-- <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="close-modal" data-dismiss="modal">
@@ -1954,7 +1942,7 @@ nav
           <div class="row">
             <div class="col-lg-8 mx-auto">
               <div class="modal-body">
-                <!-- Project Details Go Here -->
+                <!-- Project Details Go Here 
                 <h2 class="text-uppercase">Project Name</h2>
                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                 <img class="img-fluid d-block mx-auto" src="img/portfolio/01-full.jpg" alt="">
@@ -1973,10 +1961,10 @@ nav
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- Modal 2 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+  <!-- <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="close-modal" data-dismiss="modal">
@@ -1988,7 +1976,7 @@ nav
           <div class="row">
             <div class="col-lg-8 mx-auto">
               <div class="modal-body">
-                <!-- Project Details Go Here -->
+                <!-- Project Details Go Here 
                 <h2 class="text-uppercase">Project Name</h2>
                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                 <img class="img-fluid d-block mx-auto" src="img/portfolio/02-full.jpg" alt="">
@@ -2007,10 +1995,10 @@ nav
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- Modal 3 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+  <!-- <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="close-modal" data-dismiss="modal">
@@ -2022,7 +2010,7 @@ nav
           <div class="row">
             <div class="col-lg-8 mx-auto">
               <div class="modal-body">
-                <!-- Project Details Go Here -->
+                <!-- Project Details Go Here 
                 <h2 class="text-uppercase">Project Name</h2>
                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                 <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
@@ -2041,10 +2029,10 @@ nav
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- Modal 4 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+  <!-- <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="close-modal" data-dismiss="modal">
@@ -2056,7 +2044,7 @@ nav
           <div class="row">
             <div class="col-lg-8 mx-auto">
               <div class="modal-body">
-                <!-- Project Details Go Here -->
+                <!-- Project Details Go Here
                 <h2 class="text-uppercase">Project Name</h2>
                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                 <img class="img-fluid d-block mx-auto" src="static/img/portfolio.jpg" alt="">
@@ -2075,10 +2063,10 @@ nav
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- Modal 5 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+  <!-- <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="close-modal" data-dismiss="modal">
@@ -2090,14 +2078,10 @@ nav
           <div class="row">
             <div class="col-lg-8 mx-auto">
               <div class="modal-body">
-                <!-- Project Details Go Here -->
+                <!-- Project Details Go Here 
                 <h2 class="text-uppercase">Project Name</h2>
                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-<<<<<<< HEAD
                 <img class="img-fluid d-block mx-auto" src="../static/img/houses3.jpg" alt="">
-=======
-                <img class="img-fluid d-block mx-auto" src="img/houses3.jpg" alt="">
->>>>>>> e62f6c0a4b49f10f386f2bdd2ae58fe07bde1dfd
                 <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
                 <ul class="list-inline">
                   <li>Date: March 2019</li>
@@ -2113,10 +2097,10 @@ nav
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- Modal 6 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+  <!-- <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="close-modal" data-dismiss="modal">
@@ -2127,8 +2111,8 @@ nav
         <div class="container">
           <div class="row">
             <div class="col-lg-8 mx-auto">
-              <div class="modal-body">
-                <!-- Project Details Go Here -->
+              <div class="modal-body"> -->
+                <!-- Project Details Go Here 
                 <h2 class="text-uppercase">Project Name</h2>
                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                 <img class="img-fluid d-block mx-auto" src="img/portfolio/06-full.jpg" alt="">
@@ -2147,7 +2131,7 @@ nav
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- Bootstrap core JavaScript -->
   <script src="static/vendor/jquery/jquery.min.js"></script>
@@ -2170,11 +2154,15 @@ nav
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
    
   <!-- Leaflet JavaScript -->
-   <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
-   integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
-   crossorigin=""></script>
-  
-   <!-- Icons -->
+  <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+  integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+  crossorigin=""></script>
+  <!-- Marker Cluster JS & CSS -->
+  <script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css">
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.Default.css">
+
+  <!-- Icons -->
   <script src="{{ url_for('static', filename='js/leaflet.extra-markers.min.js') }}"></script>
   
   <!-- polyfill.io is library for using newer JavaScript features in older browers (such as Object.assign) -->
@@ -2185,7 +2173,7 @@ nav
   <script src="{{ url_for('static', filename='js/config.js') }}"></script>
   <!-- <script src="{{ url_for('static', filename='js/logic.js') }}"></script> -->
   <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/logic_happinesstvsrent.js') }}"></script>
+  <!-- <script src="{{ url_for('static', filename='js/logic_happinesstvsrent.js') }}"></script> -->
 
  
 

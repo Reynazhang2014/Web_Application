@@ -6,7 +6,13 @@ body,
   margin: 0;
 }
 
-#map {
+#map-happinessvsrent {
+  height: 700px;
+  padding: 0;
+  margin: 0;
+}
+
+#map_high20 {
   height: 700px;
   padding: 0;
   margin: 0;

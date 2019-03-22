@@ -31,8 +31,7 @@ Base.prepare(db.engine, reflect=True)
 city_rent_price=Base.classes.city_rent_price
 stmt = db.session.query(city_rent_price).statement
 df= pd.read_sql_query(stmt, db.session.bind)
-
-
+print("=======================")
 
 @app.route("/")
 def index():
@@ -41,15 +40,17 @@ def index():
 
 @app.route("/monthlyrent",methods=['GET','POST'])
 def filterRent():
+    print("=======================")
     print(request.data)
+    print("=======================")
     tempdf=df
-    print(tempdf.head())
+    # print(tempdf.head(10))
     if request.data:
         filterdict = json.loads(request.data)
         for k,v in filterdict.items():
             tempdf=tempdf[tempdf[k].astype(str).str.upper()==v.upper()]
-        return tempdf.to_json(orient='records')
-    return jsonify([])
+    return tempdf.to_json(orient='records')
+    #return jsonify([])
 
 @app.route("/yearlyrent",methods=['GET','POST'])
 def yearlyrent():
@@ -59,7 +60,7 @@ def yearlyrent():
 
         tempdf2=tempdf2[tempdf2["Year"].astype(str).str.upper()== filterdict["Year"].upper()]
 
-    ave_yearly_price=tempdf2.groupby(["City","Year","State","County","Metro"])[["Price_Persq","Lat","Lon","Density","Population","PopulationRank","Price_Total","HappiestRank"]]\
+    ave_yearly_price=tempdf2.groupby(["City","Year","State","County","Metro"])[["Price_Persq","Price_Total","Lat","Lon","Density","Population","PopulationRank","HappiestRank"]]\
                             .agg({'Price_Persq':'mean','Price_Total':'mean',\
                                 'Lat':'first','Lon':'first',"Density":'first',\
                                 "Population":'first',"PopulationRank":'first',"HappiestRank":"first"})\
@@ -67,14 +68,33 @@ def yearlyrent():
                             .rename(columns={"Price_Persq":"AvePricePersq","Price_Total":"AvePriceTotal"})\
                             .sort_values(by="AvePricePersq",ascending=False)
     highest20=ave_yearly_price[:20]
-    print(highest20)
+    #print(highest20)
     return(highest20.to_json(orient='records'))
 
+@app.route("/happinessvsrent",methods=['GET','POST'])
+def happinessvsrent():
+    tempdf= df
+    if request.data:
+        filterdict = json.loads(request.data)
 
+        tempdf= tempdf[tempdf["Year"].astype(str).str.upper()== filterdict["Year"].upper()]
 
+    tempdf2= tempdf.groupby(["City","Year","State","County","Metro"])[["Price_Persq","Price_Total","Lat","Lon","Density","Population","PopulationRank","HappiestRank"]]\
+                            .agg({'Price_Persq':'mean','Price_Total':'mean',\
+                                'Lat':'first','Lon':'first',"Density":'first',\
+                                "Population":'first',"PopulationRank":'first',"HappiestRank":"first"})\
+                            .reset_index()\
+                            .rename(columns={"Price_Persq":"AvePricePersq","Price_Total":"AvePriceTotal"})
+    tempdf2.fillna(0,inplace = True)                       
 
+    happinessvsrent={"happiest":tempdf2.sort_values(by="HappiestRank",ascending=False)[:20].to_dict('records'),\
+                     "highest10":tempdf2.sort_values(by="AvePricePersq",ascending=False)[:20].to_dict('records'),\
+                     "lowest10":tempdf2.sort_values(by="AvePricePersq",ascending=True)[:20].to_dict('records')}
+   
+    
+    print(happinessvsrent)
 
-
- 
+    return jsonify(happinessvsrent) 
+   
 if __name__ == "__main__":
     app.run(debug =True)

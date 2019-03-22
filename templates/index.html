@@ -1,0 +1,2198 @@
+<!DOCTYPE html>
+<html lang="en">
+nav
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>U.S. Rent Index</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!--Datatable stylesheet-->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+
+  <!-- Custom fonts for this template -->
+  <link href="static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="static/css/agency.css" rel="stylesheet">
+  <link href="static/css/stylem.css" rel="stylesheet">
+
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Click Here to view City Info</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav text-uppercase ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#services">Happiest Cities</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#portfolio">Charts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">Map</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#team">Team</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#contact">Remove Contact Section at bottom</a>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="masthead">
+    <div class="container">
+      <div class="intro-text">
+        <div class="intro-lead-in">Welcome To Our U.S. Cities App!</div>
+        <div class="intro-heading text-uppercase">U.S. Rent Index 2012-2017</div>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Check out 2019's Happiest Cities in America</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Old Services / New Happiest Cities Table -->
+  <section id="services" style="background-color: whitesmoke">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Happiest Cities in the U.S.*</h2>
+          <h3 class="section-subheading text-muted">Find out where the happiest cities to live in America are located and click City Info menu above to find out how much it costs to live there</h3>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-12">
+            <table id="happiest_table" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Overall Rank (1=best)</th>
+                        <th>City</th>
+                        <th>Total Score</th>
+                        <th>'Emotional and Physical Well-Being' Rank</th>
+                        <th>'Income and Employment' Rank</th>
+                        <th>'Community and Environment'Rank</th>
+                    </tr>
+                </thead>
+                    <tbody>
+                <tr>
+                <td>1</td>
+                <td>Plano, TX</td>
+                <td>72.30</td>
+                <td>7</td>
+                <td>6</td>
+                <td>8</td>
+                </tr>
+                <tr>
+                <td>2</td>
+                <td>Irvine, CA</td>
+                <td>71.86</td>
+                <td>14</td>
+                <td>11</td>
+                <td>5</td>
+                </tr>
+                <tr>
+                <td>3</td>
+                <td>Madison, WI</td>
+                <td>71.81</td>
+                <td>3</td>
+                <td>14</td>
+                <td>7</td>
+                </tr>
+                <tr>
+                <td>4</td>
+                <td>Fremont, CA</td>
+                <td>71.17</td>
+                <td>10</td>
+                <td>37</td>
+                <td>1</td>
+                </tr>
+                <tr>
+                <td>5</td>
+                <td>Huntington Beach, CA</td>
+                <td>69.74</td>
+                <td>6</td>
+                <td>46</td>
+                <td>28</td>
+                </tr>
+                <tr>
+                <td>6</td>
+                <td>Fargo, ND</td>
+                <td>69.57</td>
+                <td>17</td>
+                <td>20</td>
+                <td>24</td>
+                </tr>
+                <tr>
+                <td>7</td>
+                <td>Grand Prairie, TX</td>
+                <td>69.30</td>
+                <td>20</td>
+                <td>35</td>
+                <td>6</td>
+                </tr>
+                <tr>
+                <td>8</td>
+                <td>San Jose, CA</td>
+                <td>68.90</td>
+                <td>1</td>
+                <td>18</td>
+                <td>44</td>
+                </tr>
+                <tr>
+                <td>9</td>
+                <td>Scottsdale, AZ</td>
+                <td>68.24</td>
+                <td>46</td>
+                <td>13</td>
+                <td>2</td>
+                </tr>
+                <tr>
+                <td>10</td>
+                <td>San Francisco, CA</td>
+                <td>67.53</td>
+                <td>4</td>
+                <td>2</td>
+                <td>125</td>
+                </tr>
+                <tr>
+                <td>11</td>
+                <td>Bismarck, ND</td>
+                <td>67.38</td>
+                <td>25</td>
+                <td>4</td>
+                <td>45</td>
+                </tr>
+                <tr>
+                <td>12</td>
+                <td>Overland Park, KS</td>
+                <td>67.37</td>
+                <td>22</td>
+                <td>56</td>
+                <td>26</td>
+                </tr>
+                <tr>
+                <td>13</td>
+                <td>Santa Rosa, CA</td>
+                <td>67.18</td>
+                <td>23</td>
+                <td>53</td>
+                <td>9</td>
+                </tr>
+                <tr>
+                <td>14</td>
+                <td>Austin, TX</td>
+                <td>67.16</td>
+                <td>15</td>
+                <td>8</td>
+                <td>80</td>
+                </tr>
+                <tr>
+                <td>15</td>
+                <td>Sioux Falls, SD</td>
+                <td>66.97</td>
+                <td>11</td>
+                <td>67</td>
+                <td>95</td>
+                </tr>
+                <tr>
+                <td>16</td>
+                <td>Pearl City, HI</td>
+                <td>66.77</td>
+                <td>2</td>
+                <td>147</td>
+                <td>15</td>
+                </tr>
+                <tr>
+                <td>17</td>
+                <td>Glendale, CA</td>
+                <td>66.25</td>
+                <td>27</td>
+                <td>102</td>
+                <td>12</td>
+                </tr>
+                <tr>
+                <td>18</td>
+                <td>San Diego, CA</td>
+                <td>66.01</td>
+                <td>8</td>
+                <td>36</td>
+                <td>46</td>
+                </tr>
+                <tr>
+                <td>19</td>
+                <td>St. Paul, MN</td>
+                <td>65.79</td>
+                <td>18</td>
+                <td>70</td>
+                <td>66</td>
+                </tr>
+                <tr>
+                <td>20</td>
+                <td>Charleston, SC</td>
+                <td>65.48</td>
+                <td>74</td>
+                <td>5</td>
+                <td>4</td>
+                </tr>
+                <tr>
+                <td>21</td>
+                <td>Gilbert, AZ</td>
+                <td>65.07</td>
+                <td>54</td>
+                <td>48</td>
+                <td>10</td>
+                </tr>
+                <tr>
+                <td>22</td>
+                <td>Anaheim, CA</td>
+                <td>65.02</td>
+                <td>29</td>
+                <td>79</td>
+                <td>34</td>
+                </tr>
+                <tr>
+                <td>23</td>
+                <td>Raleigh, NC</td>
+                <td>64.99</td>
+                <td>13</td>
+                <td>41</td>
+                <td>87</td>
+                </tr>
+                <tr>
+                <td>24</td>
+                <td>Cape Coral, FL</td>
+                <td>64.96</td>
+                <td>51</td>
+                <td>87</td>
+                <td>3</td>
+                </tr>
+                <tr>
+                <td>25</td>
+                <td>Cedar Rapids, IA</td>
+                <td>64.90</td>
+                <td>41</td>
+                <td>58</td>
+                <td>20</td>
+                </tr>
+                <tr>
+                <td>26</td>
+                <td>Minneapolis, MN</td>
+                <td>64.82</td>
+                <td>5</td>
+                <td>26</td>
+                <td>137</td>
+                </tr>
+                <tr>
+                <td>27</td>
+                <td>Chula Vista, CA</td>
+                <td>64.54</td>
+                <td>19</td>
+                <td>117</td>
+                <td>25</td>
+                </tr>
+                <tr>
+                <td>28</td>
+                <td>Pembroke Pines, FL</td>
+                <td>64.51</td>
+                <td>47</td>
+                <td>89</td>
+                <td>14</td>
+                </tr>
+                <tr>
+                <td>29</td>
+                <td>Honolulu, HI</td>
+                <td>64.21</td>
+                <td>55</td>
+                <td>34</td>
+                <td>17</td>
+                </tr>
+                <tr>
+                <td>30</td>
+                <td>Des Moines, IA</td>
+                <td>64.17</td>
+                <td>39</td>
+                <td>85</td>
+                <td>37</td>
+                </tr>
+                <tr>
+                <td>31</td>
+                <td>Irving, TX</td>
+                <td>64.07</td>
+                <td>28</td>
+                <td>17</td>
+                <td>119</td>
+                </tr>
+                <tr>
+                <td>32</td>
+                <td>Santa Clarita, CA</td>
+                <td>64.00</td>
+                <td>24</td>
+                <td>112</td>
+                <td>77</td>
+                </tr>
+                <tr>
+                <td>33</td>
+                <td>Chandler, AZ</td>
+                <td>63.83</td>
+                <td>62</td>
+                <td>55</td>
+                <td>16</td>
+                </tr>
+                <tr>
+                <td>34</td>
+                <td>Oceanside, CA</td>
+                <td>63.82</td>
+                <td>16</td>
+                <td>156</td>
+                <td>29</td>
+                </tr>
+                <tr>
+                <td>35</td>
+                <td>Omaha, NE</td>
+                <td>63.50</td>
+                <td>56</td>
+                <td>80</td>
+                <td>19</td>
+                </tr>
+                <tr>
+                <td>36</td>
+                <td>Lincoln, NE</td>
+                <td>63.43</td>
+                <td>32</td>
+                <td>86</td>
+                <td>62</td>
+                </tr>
+                <tr>
+                <td>37</td>
+                <td>Oakland, CA</td>
+                <td>63.16</td>
+                <td>12</td>
+                <td>75</td>
+                <td>131</td>
+                </tr>
+                <tr>
+                <td>38</td>
+                <td>Billings, MT</td>
+                <td>62.82</td>
+                <td>61</td>
+                <td>33</td>
+                <td>51</td>
+                </tr>
+                <tr>
+                <td>39</td>
+                <td>Tempe, AZ</td>
+                <td>62.80</td>
+                <td>66</td>
+                <td>54</td>
+                <td>21</td>
+                </tr>
+                <tr>
+                <td>40</td>
+                <td>Garden Grove, CA</td>
+                <td>62.70</td>
+                <td>37</td>
+                <td>107</td>
+                <td>67</td>
+                </tr>
+                <tr>
+                <td>41</td>
+                <td>Denver, CO</td>
+                <td>62.41</td>
+                <td>21</td>
+                <td>64</td>
+                <td>116</td>
+                </tr>
+                <tr>
+                <td>42</td>
+                <td>Fort Worth, TX</td>
+                <td>62.35</td>
+                <td>44</td>
+                <td>90</td>
+                <td>54</td>
+                </tr>
+                <tr>
+                <td>43</td>
+                <td>Burlington, VT</td>
+                <td>62.31</td>
+                <td>53</td>
+                <td>10</td>
+                <td>120</td>
+                </tr>
+                <tr>
+                <td>44</td>
+                <td>Peoria, AZ</td>
+                <td>62.30</td>
+                <td>65</td>
+                <td>77</td>
+                <td>23</td>
+                </tr>
+                <tr>
+                <td>45</td>
+                <td>Port St. Lucie, FL</td>
+                <td>61.96</td>
+                <td>76</td>
+                <td>73</td>
+                <td>13</td>
+                </tr>
+                <tr>
+                <td>46</td>
+                <td>Boise, ID</td>
+                <td>61.94</td>
+                <td>68</td>
+                <td>19</td>
+                <td>48</td>
+                </tr>
+                <tr>
+                <td>47</td>
+                <td>Garland, TX</td>
+                <td>61.86</td>
+                <td>31</td>
+                <td>120</td>
+                <td>103</td>
+                </tr>
+                <tr>
+                <td>48</td>
+                <td>Aurora, CO</td>
+                <td>61.83</td>
+                <td>26</td>
+                <td>121</td>
+                <td>104</td>
+                </tr>
+                <tr>
+                <td>49</td>
+                <td>El Paso, TX</td>
+                <td>61.73</td>
+                <td>58</td>
+                <td>98</td>
+                <td>39</td>
+                </tr>
+                <tr>
+                <td>49</td>
+                <td>Arlington, TX</td>
+                <td>61.73</td>
+                <td>40</td>
+                <td>128</td>
+                <td>59</td>
+                </tr>
+                <tr>
+                <td>51</td>
+                <td>Washington, DC</td>
+                <td>61.68</td>
+                <td>9</td>
+                <td>40</td>
+                <td>167</td>
+                </tr>
+                <tr>
+                <td>52</td>
+                <td>Charlotte, NC</td>
+                <td>61.22</td>
+                <td>52</td>
+                <td>92</td>
+                <td>57</td>
+                </tr>
+                <tr>
+                <td>53</td>
+                <td>Fort Lauderdale, FL</td>
+                <td>61.16</td>
+                <td>59</td>
+                <td>60</td>
+                <td>92</td>
+                </tr>
+                <tr>
+                <td>54</td>
+                <td>Seattle, WA</td>
+                <td>61.11</td>
+                <td>36</td>
+                <td>1</td>
+                <td>171</td>
+                </tr>
+                <tr>
+                <td>55</td>
+                <td>Aurora, IL</td>
+                <td>61.05</td>
+                <td>38</td>
+                <td>164</td>
+                <td>56</td>
+                </tr>
+                <tr>
+                <td>56</td>
+                <td>Missoula, MT</td>
+                <td>60.99</td>
+                <td>57</td>
+                <td>52</td>
+                <td>91</td>
+                </tr>
+                <tr>
+                <td>57</td>
+                <td>Santa Ana, CA</td>
+                <td>60.96</td>
+                <td>50</td>
+                <td>103</td>
+                <td>73</td>
+                </tr>
+                <tr>
+                <td>58</td>
+                <td>Boston, MA</td>
+                <td>60.96</td>
+                <td>34</td>
+                <td>12</td>
+                <td>152</td>
+                </tr>
+                <tr>
+                <td>59</td>
+                <td>Colorado Springs, CO</td>
+                <td>60.96</td>
+                <td>72</td>
+                <td>69</td>
+                <td>36</td>
+                </tr>
+                <tr>
+                <td>60</td>
+                <td>Durham, NC</td>
+                <td>60.90</td>
+                <td>30</td>
+                <td>28</td>
+                <td>113</td>
+                </tr>
+                <tr>
+                <td>61</td>
+                <td>Portland, ME</td>
+                <td>60.83</td>
+                <td>48</td>
+                <td>49</td>
+                <td>149</td>
+                </tr>
+                <tr>
+                <td>62</td>
+                <td>Grand Rapids, MI</td>
+                <td>60.33</td>
+                <td>83</td>
+                <td>31</td>
+                <td>49</td>
+                </tr>
+                <tr>
+                <td>63</td>
+                <td>Rancho Cucamonga, CA</td>
+                <td>60.14</td>
+                <td>79</td>
+                <td>32</td>
+                <td>68</td>
+                </tr>
+                <tr>
+                <td>64</td>
+                <td>Salt Lake City, UT</td>
+                <td>60.11</td>
+                <td>80</td>
+                <td>9</td>
+                <td>82</td>
+                </tr>
+                <tr>
+                <td>65</td>
+                <td>Yonkers, NY</td>
+                <td>60.10</td>
+                <td>45</td>
+                <td>157</td>
+                <td>79</td>
+                </tr>
+                <tr>
+                <td>66</td>
+                <td>Las Cruces, NM</td>
+                <td>60.08</td>
+                <td>33</td>
+                <td>123</td>
+                <td>69</td>
+                </tr>
+                <tr>
+                <td>67</td>
+                <td>Rapid City, SD</td>
+                <td>60.07</td>
+                <td>86</td>
+                <td>30</td>
+                <td>64</td>
+                </tr>
+                <tr>
+                <td>68</td>
+                <td>Dallas, TX</td>
+                <td>59.82</td>
+                <td>35</td>
+                <td>109</td>
+                <td>123</td>
+                </tr>
+                <tr>
+                <td>69</td>
+                <td>South Burlington, VT</td>
+                <td>59.81</td>
+                <td>90</td>
+                <td>63</td>
+                <td>31</td>
+                </tr>
+                <tr>
+                <td>70</td>
+                <td>Virginia Beach, VA</td>
+                <td>59.71</td>
+                <td>73</td>
+                <td>105</td>
+                <td>43</td>
+                </tr>
+                <tr>
+                <td>71</td>
+                <td>Long Beach, CA</td>
+                <td>59.58</td>
+                <td>42</td>
+                <td>138</td>
+                <td>108</td>
+                </tr>
+                <tr>
+                <td>72</td>
+                <td>Anchorage, AK</td>
+                <td>59.53</td>
+                <td>84</td>
+                <td>82</td>
+                <td>41</td>
+                </tr>
+                <tr>
+                <td>73</td>
+                <td>Cheyenne, WY</td>
+                <td>59.51</td>
+                <td>78</td>
+                <td>23</td>
+                <td>127</td>
+                </tr>
+                <tr>
+                <td>74</td>
+                <td>Columbia, MD</td>
+                <td>59.47</td>
+                <td>49</td>
+                <td>101</td>
+                <td>138</td>
+                </tr>
+                <tr>
+                <td>75</td>
+                <td>Mesa, AZ</td>
+                <td>59.25</td>
+                <td>77</td>
+                <td>116</td>
+                <td>47</td>
+                </tr>
+                <tr>
+                <td>76</td>
+                <td>Chesapeake, VA</td>
+                <td>58.63</td>
+                <td>94</td>
+                <td>122</td>
+                <td>27</td>
+                </tr>
+                <tr>
+                <td>77</td>
+                <td>Reno, NV</td>
+                <td>58.58</td>
+                <td>98</td>
+                <td>50</td>
+                <td>52</td>
+                </tr>
+                <tr>
+                <td>78</td>
+                <td>Tallahassee, FL</td>
+                <td>58.54</td>
+                <td>91</td>
+                <td>42</td>
+                <td>85</td>
+                </tr>
+                <tr>
+                <td>79</td>
+                <td>Atlanta, GA</td>
+                <td>58.46</td>
+                <td>64</td>
+                <td>88</td>
+                <td>100</td>
+                </tr>
+                <tr>
+                <td>80</td>
+                <td>Oxnard, CA</td>
+                <td>58.36</td>
+                <td>71</td>
+                <td>151</td>
+                <td>30</td>
+                </tr>
+                <tr>
+                <td>81</td>
+                <td>Nampa, ID</td>
+                <td>58.20</td>
+                <td>102</td>
+                <td>137</td>
+                <td>11</td>
+                </tr>
+                <tr>
+                <td>82</td>
+                <td>Los Angeles, CA</td>
+                <td>58.12</td>
+                <td>43</td>
+                <td>104</td>
+                <td>146</td>
+                </tr>
+                <tr>
+                <td>83</td>
+                <td>Orlando, FL</td>
+                <td>58.04</td>
+                <td>85</td>
+                <td>24</td>
+                <td>107</td>
+                </tr>
+                <tr>
+                <td>84</td>
+                <td>Portland, OR</td>
+                <td>57.72</td>
+                <td>92</td>
+                <td>27</td>
+                <td>102</td>
+                </tr>
+                <tr>
+                <td>85</td>
+                <td>Salem, OR</td>
+                <td>57.71</td>
+                <td>101</td>
+                <td>29</td>
+                <td>90</td>
+                </tr>
+                <tr>
+                <td>86</td>
+                <td>Brownsville, TX</td>
+                <td>57.55</td>
+                <td>95</td>
+                <td>68</td>
+                <td>88</td>
+                </tr>
+                <tr>
+                <td>87</td>
+                <td>Pittsburgh, PA</td>
+                <td>57.45</td>
+                <td>112</td>
+                <td>21</td>
+                <td>60</td>
+                </tr>
+                <tr>
+                <td>88</td>
+                <td>Riverside, CA</td>
+                <td>57.25</td>
+                <td>100</td>
+                <td>22</td>
+                <td>105</td>
+                </tr>
+                <tr>
+                <td>89</td>
+                <td>Fontana, CA</td>
+                <td>57.23</td>
+                <td>106</td>
+                <td>72</td>
+                <td>50</td>
+                </tr>
+                <tr>
+                <td>90</td>
+                <td>New York, NY</td>
+                <td>57.10</td>
+                <td>70</td>
+                <td>152</td>
+                <td>74</td>
+                </tr>
+                <tr>
+                <td>91</td>
+                <td>Nashua, NH</td>
+                <td>57.09</td>
+                <td>82</td>
+                <td>100</td>
+                <td>96</td>
+                </tr>
+                <tr>
+                <td>92</td>
+                <td>Huntsville, AL</td>
+                <td>57.00</td>
+                <td>130</td>
+                <td>47</td>
+                <td>22</td>
+                </tr>
+                <tr>
+                <td>93</td>
+                <td>Jersey City, NJ</td>
+                <td>56.85</td>
+                <td>93</td>
+                <td>168</td>
+                <td>33</td>
+                </tr>
+                <tr>
+                <td>94</td>
+                <td>West Valley City, UT</td>
+                <td>56.83</td>
+                <td>103</td>
+                <td>78</td>
+                <td>81</td>
+                </tr>
+                <tr>
+                <td>95</td>
+                <td>Manchester, NH</td>
+                <td>56.49</td>
+                <td>96</td>
+                <td>113</td>
+                <td>63</td>
+                </tr>
+                <tr>
+                <td>96</td>
+                <td>Ontario, CA</td>
+                <td>56.35</td>
+                <td>107</td>
+                <td>84</td>
+                <td>70</td>
+                </tr>
+                <tr>
+                <td>97</td>
+                <td>San Antonio, TX</td>
+                <td>56.34</td>
+                <td>115</td>
+                <td>57</td>
+                <td>55</td>
+                </tr>
+                <tr>
+                <td>98</td>
+                <td>Amarillo, TX</td>
+                <td>56.21</td>
+                <td>119</td>
+                <td>45</td>
+                <td>78</td>
+                </tr>
+                <tr>
+                <td>99</td>
+                <td>Vancouver, WA</td>
+                <td>56.17</td>
+                <td>108</td>
+                <td>97</td>
+                <td>61</td>
+                </tr>
+                <tr>
+                <td>100</td>
+                <td>Tampa, FL</td>
+                <td>56.02</td>
+                <td>121</td>
+                <td>38</td>
+                <td>58</td>
+                </tr>
+                <tr>
+                <td>101</td>
+                <td>Miami, FL</td>
+                <td>55.97</td>
+                <td>63</td>
+                <td>39</td>
+                <td>179</td>
+                </tr>
+                <tr>
+                <td>102</td>
+                <td>Dover, DE</td>
+                <td>55.94</td>
+                <td>81</td>
+                <td>61</td>
+                <td>145</td>
+                </tr>
+                <tr>
+                <td>103</td>
+                <td>Moreno Valley, CA</td>
+                <td>55.61</td>
+                <td>111</td>
+                <td>108</td>
+                <td>65</td>
+                </tr>
+                <tr>
+                <td>104</td>
+                <td>Glendale, AZ</td>
+                <td>55.36</td>
+                <td>89</td>
+                <td>159</td>
+                <td>86</td>
+                </tr>
+                <tr>
+                <td>105</td>
+                <td>Nashville, TN</td>
+                <td>55.34</td>
+                <td>126</td>
+                <td>96</td>
+                <td>35</td>
+                </tr>
+                <tr>
+                <td>106</td>
+                <td>Houston, TX</td>
+                <td>55.33</td>
+                <td>69</td>
+                <td>132</td>
+                <td>139</td>
+                </tr>
+                <tr>
+                <td>107</td>
+                <td>Chicago, IL</td>
+                <td>55.20</td>
+                <td>60</td>
+                <td>175</td>
+                <td>114</td>
+                </tr>
+                <tr>
+                <td>108</td>
+                <td>Columbia, SC</td>
+                <td>54.93</td>
+                <td>137</td>
+                <td>7</td>
+                <td>83</td>
+                </tr>
+                <tr>
+                <td>109</td>
+                <td>Greensboro, NC</td>
+                <td>54.90</td>
+                <td>97</td>
+                <td>94</td>
+                <td>98</td>
+                </tr>
+                <tr>
+                <td>110</td>
+                <td>Lewiston, ME</td>
+                <td>54.55</td>
+                <td>151</td>
+                <td>43</td>
+                <td>84</td>
+                </tr>
+                <tr>
+                <td>111</td>
+                <td>Laredo, TX</td>
+                <td>54.40</td>
+                <td>75</td>
+                <td>66</td>
+                <td>173</td>
+                </tr>
+                <tr>
+                <td>112</td>
+                <td>Hialeah, FL</td>
+                <td>54.33</td>
+                <td>67</td>
+                <td>160</td>
+                <td>169</td>
+                </tr>
+                <tr>
+                <td>113</td>
+                <td>Lexington-Fayette, KY</td>
+                <td>54.13</td>
+                <td>113</td>
+                <td>76</td>
+                <td>112</td>
+                </tr>
+                <tr>
+                <td>113</td>
+                <td>Henderson, NV</td>
+                <td>54.13</td>
+                <td>120</td>
+                <td>125</td>
+                <td>53</td>
+                </tr>
+                <tr>
+                <td>115</td>
+                <td>Sacramento, CA</td>
+                <td>53.96</td>
+                <td>114</td>
+                <td>59</td>
+                <td>118</td>
+                </tr>
+                <tr>
+                <td>116</td>
+                <td>Modesto, CA</td>
+                <td>53.50</td>
+                <td>117</td>
+                <td>81</td>
+                <td>121</td>
+                </tr>
+                <tr>
+                <td>117</td>
+                <td>Newport News, VA</td>
+                <td>53.29</td>
+                <td>105</td>
+                <td>155</td>
+                <td>128</td>
+                </tr>
+                <tr>
+                <td>118</td>
+                <td>Tucson, AZ</td>
+                <td>53.19</td>
+                <td>99</td>
+                <td>114</td>
+                <td>134</td>
+                </tr>
+                <tr>
+                <td>119</td>
+                <td>Springfield, MO</td>
+                <td>53.03</td>
+                <td>132</td>
+                <td>106</td>
+                <td>71</td>
+                </tr>
+                <tr>
+                <td>120</td>
+                <td>St. Petersburg, FL</td>
+                <td>52.76</td>
+                <td>135</td>
+                <td>25</td>
+                <td>133</td>
+                </tr>
+                <tr>
+                <td>121</td>
+                <td>Richmond, VA</td>
+                <td>52.66</td>
+                <td>104</td>
+                <td>139</td>
+                <td>157</td>
+                </tr>
+                <tr>
+                <td>122</td>
+                <td>Tacoma, WA</td>
+                <td>52.59</td>
+                <td>109</td>
+                <td>140</td>
+                <td>153</td>
+                </tr>
+                <tr>
+                <td>123</td>
+                <td>Warwick, RI</td>
+                <td>52.41</td>
+                <td>136</td>
+                <td>44</td>
+                <td>151</td>
+                </tr>
+                <tr>
+                <td>124</td>
+                <td>Lubbock, TX</td>
+                <td>52.29</td>
+                <td>133</td>
+                <td>16</td>
+                <td>142</td>
+                </tr>
+                <tr>
+                <td>125</td>
+                <td>Casper, WY</td>
+                <td>51.99</td>
+                <td>161</td>
+                <td>71</td>
+                <td>97</td>
+                </tr>
+                <tr>
+                <td>126</td>
+                <td>Kansas City, MO</td>
+                <td>51.96</td>
+                <td>110</td>
+                <td>148</td>
+                <td>129</td>
+                </tr>
+                <tr>
+                <td>127</td>
+                <td>Phoenix, AZ</td>
+                <td>51.94</td>
+                <td>87</td>
+                <td>136</td>
+                <td>172</td>
+                </tr>
+                <tr>
+                <td>128</td>
+                <td>Oklahoma City, OK</td>
+                <td>51.59</td>
+                <td>155</td>
+                <td>110</td>
+                <td>38</td>
+                </tr>
+                <tr>
+                <td>129</td>
+                <td>Corpus Christi, TX</td>
+                <td>51.50</td>
+                <td>145</td>
+                <td>15</td>
+                <td>124</td>
+                </tr>
+                <tr>
+                <td>130</td>
+                <td>Winston-Salem, NC</td>
+                <td>51.44</td>
+                <td>116</td>
+                <td>118</td>
+                <td>141</td>
+                </tr>
+                <tr>
+                <td>131</td>
+                <td>Juneau, AK</td>
+                <td>51.21</td>
+                <td>160</td>
+                <td>3</td>
+                <td>175</td>
+                </tr>
+                <tr>
+                <td>132</td>
+                <td>Albuquerque, NM</td>
+                <td>51.15</td>
+                <td>123</td>
+                <td>111</td>
+                <td>150</td>
+                </tr>
+                <tr>
+                <td>133</td>
+                <td>Columbus, OH</td>
+                <td>51.14</td>
+                <td>128</td>
+                <td>133</td>
+                <td>111</td>
+                </tr>
+                <tr>
+                <td>134</td>
+                <td>Bakersfield, CA</td>
+                <td>50.98</td>
+                <td>139</td>
+                <td>74</td>
+                <td>126</td>
+                </tr>
+                <tr>
+                <td>135</td>
+                <td>Bridgeport, CT</td>
+                <td>50.92</td>
+                <td>88</td>
+                <td>169</td>
+                <td>161</td>
+                </tr>
+                <tr>
+                <td>136</td>
+                <td>Jacksonville, FL</td>
+                <td>50.55</td>
+                <td>153</td>
+                <td>95</td>
+                <td>72</td>
+                </tr>
+                <tr>
+                <td>137</td>
+                <td>Knoxville, TN</td>
+                <td>50.43</td>
+                <td>166</td>
+                <td>62</td>
+                <td>32</td>
+                </tr>
+                <tr>
+                <td>138</td>
+                <td>Louisville, KY</td>
+                <td>50.31</td>
+                <td>158</td>
+                <td>124</td>
+                <td>42</td>
+                </tr>
+                <tr>
+                <td>139</td>
+                <td>Norfolk, VA</td>
+                <td>49.97</td>
+                <td>129</td>
+                <td>129</td>
+                <td>143</td>
+                </tr>
+                <tr>
+                <td>140</td>
+                <td>Chattanooga, TN</td>
+                <td>49.94</td>
+                <td>167</td>
+                <td>99</td>
+                <td>40</td>
+                </tr>
+                <tr>
+                <td>141</td>
+                <td>Wichita, KS</td>
+                <td>49.79</td>
+                <td>138</td>
+                <td>131</td>
+                <td>130</td>
+                </tr>
+                <tr>
+                <td>142</td>
+                <td>Worcester, MA</td>
+                <td>49.77</td>
+                <td>125</td>
+                <td>149</td>
+                <td>159</td>
+                </tr>
+                <tr>
+                <td>143</td>
+                <td>Rochester, NY</td>
+                <td>49.76</td>
+                <td>134</td>
+                <td>142</td>
+                <td>140</td>
+                </tr>
+                <tr>
+                <td>144</td>
+                <td>San Bernardino, CA</td>
+                <td>49.56</td>
+                <td>124</td>
+                <td>134</td>
+                <td>166</td>
+                </tr>
+                <tr>
+                <td>145</td>
+                <td>Buffalo, NY</td>
+                <td>49.22</td>
+                <td>144</td>
+                <td>126</td>
+                <td>117</td>
+                </tr>
+                <tr>
+                <td>146</td>
+                <td>Fresno, CA</td>
+                <td>48.86</td>
+                <td>127</td>
+                <td>119</td>
+                <td>158</td>
+                </tr>
+                <tr>
+                <td>147</td>
+                <td>Milwaukee, WI</td>
+                <td>48.75</td>
+                <td>122</td>
+                <td>172</td>
+                <td>147</td>
+                </tr>
+                <tr>
+                <td>148</td>
+                <td>Baton Rouge, LA</td>
+                <td>48.56</td>
+                <td>140</td>
+                <td>93</td>
+                <td>168</td>
+                </tr>
+                <tr>
+                <td>149</td>
+                <td>Stockton, CA</td>
+                <td>48.35</td>
+                <td>118</td>
+                <td>150</td>
+                <td>165</td>
+                </tr>
+                <tr>
+                <td>150</td>
+                <td>Spokane, WA</td>
+                <td>48.08</td>
+                <td>142</td>
+                <td>91</td>
+                <td>176</td>
+                </tr>
+                <tr>
+                <td>151</td>
+                <td>Indianapolis, IN</td>
+                <td>47.83</td>
+                <td>147</td>
+                <td>177</td>
+                <td>89</td>
+                </tr>
+                <tr>
+                <td>152</td>
+                <td>Fort Wayne, IN</td>
+                <td>47.63</td>
+                <td>152</td>
+                <td>143</td>
+                <td>132</td>
+                </tr>
+                <tr>
+                <td>153</td>
+                <td>New Orleans, LA</td>
+                <td>47.57</td>
+                <td>164</td>
+                <td>127</td>
+                <td>76</td>
+                </tr>
+                <tr>
+                <td>154</td>
+                <td>North Las Vegas, NV</td>
+                <td>47.19</td>
+                <td>157</td>
+                <td>158</td>
+                <td>99</td>
+                </tr>
+                <tr>
+                <td>155</td>
+                <td>Las Vegas, NV</td>
+                <td>47.02</td>
+                <td>149</td>
+                <td>146</td>
+                <td>144</td>
+                </tr>
+                <tr>
+                <td>156</td>
+                <td>Tulsa, OK</td>
+                <td>46.50</td>
+                <td>170</td>
+                <td>83</td>
+                <td>110</td>
+                </tr>
+                <tr>
+                <td>157</td>
+                <td>Wilmington, DE</td>
+                <td>46.32</td>
+                <td>156</td>
+                <td>144</td>
+                <td>154</td>
+                </tr>
+                <tr>
+                <td>158</td>
+                <td>Providence, RI</td>
+                <td>45.81</td>
+                <td>169</td>
+                <td>115</td>
+                <td>122</td>
+                </tr>
+                <tr>
+                <td>159</td>
+                <td>New Haven, CT</td>
+                <td>45.56</td>
+                <td>131</td>
+                <td>141</td>
+                <td>182</td>
+                </tr>
+                <tr>
+                <td>160</td>
+                <td>Montgomery, AL</td>
+                <td>45.48</td>
+                <td>143</td>
+                <td>176</td>
+                <td>155</td>
+                </tr>
+                <tr>
+                <td>161</td>
+                <td>Baltimore, MD</td>
+                <td>44.75</td>
+                <td>148</td>
+                <td>161</td>
+                <td>177</td>
+                </tr>
+                <tr>
+                <td>162</td>
+                <td>Jackson, MS</td>
+                <td>44.70</td>
+                <td>150</td>
+                <td>178</td>
+                <td>178</td>
+                </tr>
+                <tr>
+                <td>163</td>
+                <td>Shreveport, LA</td>
+                <td>44.59</td>
+                <td>171</td>
+                <td>173</td>
+                <td>75</td>
+                </tr>
+                <tr>
+                <td>164</td>
+                <td>Memphis, TN</td>
+                <td>44.45</td>
+                <td>146</td>
+                <td>179</td>
+                <td>156</td>
+                </tr>
+                <tr>
+                <td>165</td>
+                <td>Philadelphia, PA</td>
+                <td>44.27</td>
+                <td>168</td>
+                <td>165</td>
+                <td>115</td>
+                </tr>
+                <tr>
+                <td>166</td>
+                <td>Columbus, GA</td>
+                <td>44.27</td>
+                <td>174</td>
+                <td>154</td>
+                <td>109</td>
+                </tr>
+                <tr>
+                <td>167</td>
+                <td>Fayetteville, NC</td>
+                <td>44.17</td>
+                <td>159</td>
+                <td>153</td>
+                <td>170</td>
+                </tr>
+                <tr>
+                <td>168</td>
+                <td>Akron, OH</td>
+                <td>44.05</td>
+                <td>154</td>
+                <td>166</td>
+                <td>174</td>
+                </tr>
+                <tr>
+                <td>169</td>
+                <td>Cincinnati, OH</td>
+                <td>43.50</td>
+                <td>165</td>
+                <td>145</td>
+                <td>162</td>
+                </tr>
+                <tr>
+                <td>170</td>
+                <td>Fort Smith, AR</td>
+                <td>43.33</td>
+                <td>176</td>
+                <td>135</td>
+                <td>136</td>
+                </tr>
+                <tr>
+                <td>171</td>
+                <td>St. Louis, MO</td>
+                <td>42.85</td>
+                <td>162</td>
+                <td>170</td>
+                <td>160</td>
+                </tr>
+                <tr>
+                <td>172</td>
+                <td>Augusta, GA</td>
+                <td>42.38</td>
+                <td>175</td>
+                <td>163</td>
+                <td>106</td>
+                </tr>
+                <tr>
+                <td>173</td>
+                <td>Mobile, AL</td>
+                <td>42.22</td>
+                <td>172</td>
+                <td>174</td>
+                <td>135</td>
+                </tr>
+                <tr>
+                <td>174</td>
+                <td>Newark, NJ</td>
+                <td>41.86</td>
+                <td>141</td>
+                <td>182</td>
+                <td>180</td>
+                </tr>
+                <tr>
+                <td>175</td>
+                <td>Huntington, WV</td>
+                <td>41.58</td>
+                <td>182</td>
+                <td>51</td>
+                <td>18</td>
+                </tr>
+                <tr>
+                <td>176</td>
+                <td>Little Rock, AR</td>
+                <td>41.40</td>
+                <td>178</td>
+                <td>130</td>
+                <td>101</td>
+                </tr>
+                <tr>
+                <td>177</td>
+                <td>Gulfport, MS</td>
+                <td>41.06</td>
+                <td>179</td>
+                <td>162</td>
+                <td>94</td>
+                </tr>
+                <tr>
+                <td>178</td>
+                <td>Cleveland, OH</td>
+                <td>40.81</td>
+                <td>163</td>
+                <td>180</td>
+                <td>164</td>
+                </tr>
+                <tr>
+                <td>179</td>
+                <td>Birmingham, AL</td>
+                <td>40.78</td>
+                <td>173</td>
+                <td>167</td>
+                <td>163</td>
+                </tr>
+                <tr>
+                <td>180</td>
+                <td>Charleston, WV</td>
+                <td>39.68</td>
+                <td>180</td>
+                <td>65</td>
+                <td>93</td>
+                </tr>
+                <tr>
+                <td>181</td>
+                <td>Toledo, OH</td>
+                <td>39.48</td>
+                <td>177</td>
+                <td>171</td>
+                <td>148</td>
+                </tr>
+                <tr>
+                <td>182</td>
+                <td>Detroit, MI</td>
+                <td>29.19</td>
+                <td>181</td>
+                <td>181</td>
+                <td>181</td>
+                </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Office</th>
+                        <th>Age</th>
+                        <th>Start date</th>
+                        <th>Salary</th>
+                    </tr>
+                </tfoot>
+            </table>
+          
+        </div>
+        
+        <!-- <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading">Responsive Design</h4>
+          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+        </div>
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading">Web Security</h4>
+          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+        </div> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Old Portfolio Grid / New Charts -->
+  <section class="bg-light" id="portfolio">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Charts</h2>
+          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+        </div>
+      </div>
+      <!-- <div class="row">
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="static/img/portfolio/01-thumbnail.jpg" alt="">
+          </a>
+          <div class="portfolio-caption">
+            <h4>Threads</h4>
+            <p class="text-muted">Illustration</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="static/img/portfolio/02-thumbnail.jpg" alt="">
+          </a>
+          <div class="portfolio-caption">
+            <h4>Explore</h4>
+            <p class="text-muted">Graphic Design</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="static/img/portfolio/03-thumbnail.jpg" alt="">
+          </a>
+          <div class="portfolio-caption">
+            <h4>Finish</h4>
+            <p class="text-muted">Identity</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="static/img/portfolio/04-thumbnail.jpg" alt="">
+          </a>
+          <div class="portfolio-caption">
+            <h4>Lines</h4>
+            <p class="text-muted">Branding</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="static/img/houses3.jpg" alt="">
+          </a>
+          <div class="portfolio-caption">
+            <h4>Southwest</h4>
+            <p class="text-muted">Website Design</p>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 portfolio-item">
+          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="static/img/portfolio/06-thumbnail.jpg" alt="">
+          </a>
+          <div class="portfolio-caption">
+            <h4>Window</h4>
+            <p class="text-muted">Photography</p>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Old About/ New Map -->
+  <section id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Map</h2>
+          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          <div class="wrapper">
+              <div class="container">
+                  <div id="map-happinessvsren">
+                      <p>hi</p>
+                  </div>
+                  <div id="map-area">
+                      <p>hi</p>
+                  </div>
+              </div>  
+          </div>    
+
+
+
+
+        </div>
+      </div>
+      <!-- <div class="row">
+        <div class="col-lg-12">
+          <ul class="timeline">
+            <li>
+              <div class="timeline-image">
+                <img class="rounded-circle img-fluid" src="static/img/about/1.jpg" alt="">
+              </div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4>2009-2011</h4>
+                  <h4 class="subheading">Our Humble Beginnings</h4>
+                </div>
+                <div class="timeline-body">
+                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                </div>
+              </div>
+            </li>
+            <li class="timeline-inverted">
+              <div class="timeline-image">
+                <img class="rounded-circle img-fluid" src="static/img/about/2.jpg" alt="">
+              </div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4>March 2011</h4>
+                  <h4 class="subheading">An Agency is Born</h4>
+                </div>
+                <div class="timeline-body">
+                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="timeline-image">
+                <img class="rounded-circle img-fluid" src="img/about/3.jpg" alt="">
+              </div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4>December 2012</h4>
+                  <h4 class="subheading">Transition to Full Service</h4>
+                </div>
+                <div class="timeline-body">
+                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                </div>
+              </div>
+            </li>
+            <li class="timeline-inverted">
+              <div class="timeline-image">
+                <img class="rounded-circle img-fluid" src="img/about/4.jpg" alt="">
+              </div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4>July 2014</h4>
+                  <h4 class="subheading">Phase Two Expansion</h4>
+                </div>
+                <div class="timeline-body">
+                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                </div>
+              </div>
+            </li>
+            <li class="timeline-inverted">
+              <div class="timeline-image">
+                <h4>Be Part
+                  <br>Of Our
+                  <br>Story!</h4>
+              </div>
+            </li>
+          </ul>
+        </div> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="bg-light" id="team">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
+          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="static/img/team/1.jpg" alt="">
+            <h4>Mina Abad</h4>
+            <p class="text-muted">Lead Developer</p>
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="team-member">
+            <img class="rounded-circle" src="static/img/chris.jpg" alt="">
+            <h4>Christine Gellel</h4>
+            <p class="text-muted">Lead Designer</p>
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="static/img/team/3.jpg" alt="">
+            <h4>Reyna Zhang</h4>
+            <p class="text-muted">Lead Data Analyst</p>
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clients -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-6">
+          <a href="#">
+            <img class="img-fluid d-block mx-auto" src="img/logos/envato.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <a href="#">
+            <img class="img-fluid d-block mx-auto" src="img/logos/designmodo.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <a href="#">
+            <img class="img-fluid d-block mx-auto" src="img/logos/themeforest.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <a href="#">
+            <img class="img-fluid d-block mx-auto" src="img/logos/creative-market.jpg" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <span class="copyright">Copyright &copy; Data Analytics Bootcamp 2019</span>
+        </div>
+        <div class="col-md-4">
+          <ul class="list-inline social-buttons">
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <ul class="list-inline quicklinks">
+            <li class="list-inline-item">
+              <a href="#">Privacy Policy</a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">Terms of Use</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Portfolio Modals -->
+
+  <!-- Modal 1 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                <img class="img-fluid d-block mx-auto" src="img/portfolio/01-full.jpg" alt="">
+                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                <ul class="list-inline">
+                  <li>Date: January 2017</li>
+                  <li>Client: Threads</li>
+                  <li>Category: Illustration</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                <img class="img-fluid d-block mx-auto" src="img/portfolio/02-full.jpg" alt="">
+                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                <ul class="list-inline">
+                  <li>Date: January 2017</li>
+                  <li>Client: Explore</li>
+                  <li>Category: Graphic Design</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
+                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                <ul class="list-inline">
+                  <li>Date: January 2017</li>
+                  <li>Client: Finish</li>
+                  <li>Category: Identity</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 4 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                <img class="img-fluid d-block mx-auto" src="static/img/portfolio.jpg" alt="">
+                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                <ul class="list-inline">
+                  <li>Date: January 2017</li>
+                  <li>Client: Lines</li>
+                  <li>Category: Branding</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 5 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+<<<<<<< HEAD
+                <img class="img-fluid d-block mx-auto" src="../static/img/houses3.jpg" alt="">
+=======
+                <img class="img-fluid d-block mx-auto" src="img/houses3.jpg" alt="">
+>>>>>>> e62f6c0a4b49f10f386f2bdd2ae58fe07bde1dfd
+                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                <ul class="list-inline">
+                  <li>Date: March 2019</li>
+                  <li>Client: Zillow</li>
+                  <li>Category: Website Design</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 6 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h2 class="text-uppercase">Project Name</h2>
+                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                <img class="img-fluid d-block mx-auto" src="img/portfolio/06-full.jpg" alt="">
+                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                <ul class="list-inline">
+                  <li>Date: January 2017</li>
+                  <li>Client: Window</li>
+                  <li>Category: Photography</li>
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="static/vendor/jquery/jquery.min.js"></script>
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src='https://code.jquery.com/jquery-3.3.1.js'></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Contact form JavaScript -->
+  <script src="static/js/jqBootstrapValidation.js"></script>
+  <script src="static/js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="static/js/agency.min.js"></script>
+
+  <!-- MomentJS -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
+   
+  <!-- Leaflet JavaScript -->
+   <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+   integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+   crossorigin=""></script>
+  
+   <!-- Icons -->
+  <script src="{{ url_for('static', filename='js/leaflet.extra-markers.min.js') }}"></script>
+  
+  <!-- polyfill.io is library for using newer JavaScript features in older browers (such as Object.assign) -->
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+
+  <!-- API Key -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="{{ url_for('static', filename='js/config.js') }}"></script>
+  <!-- <script src="{{ url_for('static', filename='js/logic.js') }}"></script> -->
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/logic_happinesstvsrent.js') }}"></script>
+
+ 
+
+  <!--Datatable js-->  
+  <script src='/static/js/table.js'></script>
+
+
+</body>
+
+</html>

@@ -1,47 +1,144 @@
 let price=[];
 let avePrice=[];
 // Keep Track of all filters
-var priceFilters = {"Year":"2014","State":"CA","maxRent":3000,"minRent":1000};
+var priceFilters = {"Year":"2017","City":"Irvine"};
 console.log(priceFilters);
 var map;
 var map2;
-var filterMap;
-var myicon = L.icon({'iconUrl': 'http://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi2.png'});
 
-  var pirate = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+//========================================
+function plots(data){
+  //console.log("Filtered data:");  
+  //console.log(data);
+
+}
+
+//========================================
+function plotHigh10(data){
+  console.log("Filtered data2:");  
+  console.log(data);
+  if(map2 != null){
+    map2.remove();
+  }
+
+//max zoom allowed set to 18 which means 15 additional clicks after 3
+
+  //Backgrounds
+  var street = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
       maxZoom: 18,
       //can Also set id to mapbox.dark
       id: 'mapbox.streets',
       accessToken: API_KEY
   });
-  
-  filterMap = L.map('map-area',
-      {'layers': [pirate]}).setView([37.8, -96], 4);
-var cities = L.markerClusterGroup();
-  filterMap.addLayer(cities);
-//========================================
-function plots(data){
-  
-  cities.clearLayers();
-  
-  
-  
-  data.forEach( row =>{
-    if(row.Lat && row.Lon){
-      cities.addLayer(L.marker([row.Lat,row.Lon],{icon:myicon}).bindPopup(
-        `<h4> City: ${row.City}</h4> <hr> 
-        <h5> $ monthly rent: ${row.AvePriceTotal.toFixed(2)} </h5>
-        <h5> $ per sqft: ${row.AvePricePersq.toFixed(2)} </h5>
-        <h5> Population: ${row.Population} </h5>`
-        ));
-      }
+
+
+  var dark = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      maxZoom: 18,
+      //can Also set id to mapbox.dark
+      id: 'mapbox.dark',
+      accessToken: API_KEY
   });
 
+
+  //Overlays
+  //layerGroup is an empty list or container we can add things to like markers
+  var cities = L.layerGroup();
+  var happiest=data["happiest"]
+  var highest10=data["highest10"]
+  var lowest10=data["lowest10"]
+  console.log(happiest)
+
+  happiest.forEach( row =>{
+    var m = L.marker([row.Lat,row.Lon]).bindPopup(
+      `<h3> happiest10</h3> <hr> 
+      <h3> City: ${row.City}</h3> <hr> 
+      <h4> $ monthly rent: ${row.AvePriceTotal} </h4>
+      <h4> $ per sqft: ${row.AvePricePersq} </h4>`);
+    cities.addLayer(m);
+  })
+
+  highest10.forEach( row =>{
+    var m = L.circleMarker([row.Lat,row.Lon], {pixel: 20 , color : "green"}).bindPopup(
+      `<h3> highest10 </h3> <hr> 
+      <h3> City: ${row.City}</h3> <hr> 
+      <h4> $ monthly rent: ${row.AvePriceTotal} </h4>
+      <h4> $ per sqft: ${row.AvePricePersq} </h4>`);
+    cities.addLayer(m);
+  })
+
+  lowest10.forEach( row =>{
+    var m = L.circleMarker([row.Lat,row.Lon], {pixel: 10 ,color : "red"}).bindPopup(
+      `<h3> lowest10 </h3> <hr> 
+      <h3> City: ${row.City}</h3> <hr> 
+      <h4> $ monthly rent: ${row.AvePriceTotal} </h4>
+      <h4> $ per sqft: ${row.AvePricePersq} </h4>`);
+    cities.addLayer(m);
+  })
+
+  //can also create layers in list or array
+  var arr = [L.marker([40, -80]), L.circleMarker([36, -80], {pixel: 20, color : "red"})]
+  var cities2 = L.layerGroup(arr);
+
+  //Controls
+  //Add controls box in top right which will define background vs overlay layers
+  var backgroundLayers = {
+      'Street View': street,
+      'Dark View': dark
+  };
+
+  var overlayLayers = {
+      'Cities 1': cities,
+      'Cities 2': cities2
+  };
+
+  //Map
+  map2 = L.map('map-happinessvsrent',
+      {'layers': [street, cities, cities2]}).setView([37.8, -96], 4);
+
+  L.control.layers(backgroundLayers, overlayLayers).addTo(map2);
+
+  //Legend
+  var legend = L.control({position: 'bottomright'});
+
+  legend.onAdd = function (map) {
+
+      var div = L.DomUtil.create('div', 'info legend');
+
+      div.innerHTML = `<p><i style="background:darkred"></i>Legend 1</p>
+                      <p><i style="background:red"></i>Legend 2</p>`;
+          
+      // loop through our density intervals and generate a label with a colored square for each interval
+      
+
+      return div;
+  };
+
+  legend.addTo(map2);
+
+  var trace1={x: highest10.map(r => r["City"]),
+              y: highest10.map(r => r["AvePriceTotal"]),
+              type: "bar",
+              text: highest10.map(r => r["State"]),
+              textposition: 'bottom',
+              name: "highest"
+            };
+
+  var trace2={x: lowest10.map(r => r["City"]),
+              y: lowest10.map(r => r["AvePriceTotal"]),
+            type: "bar",
+            name: "lowest"
+          };          
+  var data_list=[trace1,trace2];  
+  
+  var layout = {
+    title: "'Bar' Chart"
+  };
+  Plotly.newPlot("plot1",data_list,layout)
+
+
 }
-
-//========================================
-
 
 
 //========================================
@@ -143,18 +240,10 @@ function plotHigh20(data){
     }
     else {
       delete priceFilters[filterId];
-    };
+    }
   
     //console.log(priceFilters);
-    };
-
-
-//========================================  
-function createTable(data){
-  console.log(data);
-}
-//========================================
-
+    }
 
 //========================================
 // Attach an event to listen for changes to each filter
@@ -172,11 +261,8 @@ function getData() {
   d3.json('/yearlyrent', {method: 'POST', body: JSON.stringify(priceFilters)})
   .then(data => plotHigh20(data));
 
-  d3.json('/monthlyrent', {method: 'POST', body: JSON.stringify(priceFilters)})
-  .then(data => createTable(data));
-
-  // d3.json('/happinessvsrent', {method: 'POST', body: JSON.stringify(priceFilters)})
-  // .then(data => plotHigh10(data));
+  d3.json('/happinessvsrent', {method: 'POST', body: JSON.stringify(priceFilters)})
+  .then(data => plotHigh10(data));
 
   
 }

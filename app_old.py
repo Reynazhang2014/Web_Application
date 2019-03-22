@@ -44,28 +44,13 @@ def filterRent():
     print(request.data)
     print("=======================")
     tempdf=df
-    ave_yearly_price=tempdf.groupby(["City","Year","State","County","Metro"])[["Price_Persq","Price_Total","Lat","Lon","Density","Population","PopulationRank","HappiestRank"]]\
-                            .agg({'Price_Persq':'mean','Price_Total':'mean',\
-                                'Lat':'first','Lon':'first',"Density":'first',\
-                                "Population":'first',"PopulationRank":'first',"HappiestRank":"first"})\
-                            .reset_index()\
-                            .rename(columns={"Price_Persq":"AvePricePersq","Price_Total":"AvePriceTotal"})\
-                            .sort_values(by="AvePricePersq",ascending=False)
     # print(tempdf.head(10))
     if request.data:
         filterdict = json.loads(request.data)
-        print(filterdict)
         for k,v in filterdict.items():
-            
-            if k == 'maxRent':
-                ave_yearly_price = ave_yearly_price[ave_yearly_price['AvePriceTotal'] <= float(v)]
-                print(ave_yearly_price['AvePriceTotal'].head())
-            elif k == 'minRent':
-                ave_yearly_price = ave_yearly_price[ave_yearly_price['AvePriceTotal'] >= float(v)]
-            else:
-                ave_yearly_price=ave_yearly_price[ave_yearly_price[k].astype(str).str.upper()==v.upper()]
-        print(ave_yearly_price)
-    return ave_yearly_price.to_json(orient='records')
+            tempdf=tempdf[tempdf[k].astype(str).str.upper()==v.upper()]
+    return tempdf.to_json(orient='records')
+    #return jsonify([])
 
 @app.route("/yearlyrent",methods=['GET','POST'])
 def yearlyrent():
@@ -107,7 +92,7 @@ def happinessvsrent():
                      "lowest10":tempdf2.sort_values(by="AvePricePersq",ascending=True)[:20].to_dict('records')}
    
     
-    #print(happinessvsrent)
+    print(happinessvsrent)
 
     return jsonify(happinessvsrent) 
    

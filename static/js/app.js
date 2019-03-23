@@ -154,7 +154,9 @@ function plotHappinessVsRent(data){
   var data_list=[trace1,trace2];  
   
   var layout = {
-    title: "'Bar' Chart"
+    title: "Monthly rent for most expensive and least expensive cities",
+    xaxis:{title:"City"},
+    yaxis:{title:"Monthly Rent"}
   };
   Plotly.newPlot("plot1",data_list,layout)
 

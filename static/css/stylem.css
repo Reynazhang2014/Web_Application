@@ -49,3 +49,21 @@ body,
 .legend .out-of-order {
   color: #007dff;
 }
+
+.filters .panel-heading {
+  padding: 0;
+  color: black;
+  font-weight: bold;
+}
+
+.filters .panel-body {
+  padding: 0;
+  color:black;
+  
+}
+
+
+
+.list-group-item{
+  background-color: #fed136;
+}

@@ -57,12 +57,19 @@ body {
   margin-top: 50px;
 }
 
+.filters .panel-heading {
+  padding: 0;
+  color: #fed136;
+}
+
 .filters .panel-body {
   padding: 0;
+  background-color: #fed136;
 }
 
 .filters {
   margin-top: 10px;
+  background-color: #fed136;
 }
 
 select {

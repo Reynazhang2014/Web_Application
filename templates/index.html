@@ -51,7 +51,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Click Here to view City Info</a>
+      <!-- <a class="navbar-brand js-scroll-trigger" href="#page-top">Click Here to view City Info</a> -->
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
@@ -63,11 +63,11 @@
           </li>
          
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">Map</a>
+            <a class="nav-link js-scroll-trigger" href="#happiness">Happiness</a>
           </li>
 
           <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#portfolio">Charts</a>
+              <a class="nav-link js-scroll-trigger" href="#filter">Filter</a>
             </li>
             
           <li class="nav-item">
@@ -1599,54 +1599,91 @@
  
 
   <!-- about section is for plotting maps -->
-  <section id="about">
+  <section class="bg-light" id="happiness" style="background-color: whitesmoke">
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Map</h2>
+          <h2 class="section-heading text-uppercase">Happiness Map</h2>
           <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
         </div>  
       </div> 
-      <div class="row">
-        <div class="col-lg-9">
+      <!-- <div class="row">
+        <div class="col-lg-10 text-center">
           <div id="map-area">
           </div>
         </div>
-        <div class="col-lg-3">
-          <div id="map-area">
+      </div> -->
+
+      <div class="row">
+        <div class="col-lg-12 col-md-12 text-center">
+          <div id="map-happinessvsrent">
           </div>
         </div>
       </div>
-
-      <div class="row">
-        <div class="col-lg-6">
-          <div id="map-happinessvsrent">
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div id="map-happinessvsrent">
-          </div>
+      <div class = "row">
+        <div class="col-md-12">
+            <div id="plot1"></div>
         </div>
        
       </div>
+      
       
     </div>
     
   </section>
 
    <!-- Old Portfolio Grid / New Charts -->
-   <section class="bg-light" id="portfolio">
-      <div class="container">
+   <section id="filter" style="background-color: whitesmoke">
+      <div class="container-fluid">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Charts</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            <h2 class="section-heading text-uppercase">Filter Map</h2>
+            <h3 class="section-subheading text-muted">Find the desired places with your filters</h3>
           </div>
         </div>
-        <div class="col-md-6">
-            <div id="plot1">
+        <!-- Filter Table-->
+        <div class="row margin-top-50">
+            <div class="col-md-2">
+              <aside class="filters">
+                <div class="panel panel-default">
+                  <div class="panel-heading">Filter Search</div>
+                  <div class="panel-body">
+                    <div class="form-group">
+                      <ul class="list-group" id="filters">
+                        <li class="price-filter list-group-item">
+                          <label for="year">Enter a year (2012-2017)</label>
+                          <input class="form-control" id="Year" type="text" placeholder="2015">
+                        </li>
+                        <li class="price-filter list-group-item">
+                          <label for="state">Enter a State</label>
+                          <input class="form-control" id="State" type="text" placeholder="CA">
+                        </li>
+                        <li class="price-filter list-group-item">
+                          <label for="maxRent">Enter the highest desired rent</label>
+                          <input class="form-control" id="maxRent" type="text" placeholder=3000>
+                        </li>
+                        <li class="price-filter list-group-item">
+                          <label for="minRent">Enter the lowest desired rent</label>
+                          <input class="form-control" id="minRent" type="text" placeholder=1000>
+                        </li>
+                        <li class="list-group-item">
+                          <button type="button" class="btn btn-default btn-filter">Click here to filter</button>
+                        </li>
+                      </ul>
+                      
+                    </div>
+                  </div>
+                </div>
+              </aside>
             </div>
-        </div>
+              <div class="col-lg-10 text-center">
+                  <div id="map-area">
+                  </div>
+                </div>
+    
+      </div>
+
+        
       </div>
     </section>
 
@@ -1826,7 +1863,7 @@
           <div class="row">
             <div class="col-lg-8 mx-auto">
               <div class="modal-body">
-                <!-- Project Details Go Here 
+                <!- Project Details Go Here 
                 <h2 class="text-uppercase">Project Name</h2>
                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                 <img class="img-fluid d-block mx-auto" src="img/portfolio/01-full.jpg" alt="">
@@ -1860,7 +1897,7 @@
           <div class="row">
             <div class="col-lg-8 mx-auto">
               <div class="modal-body">
-                <!-- Project Details Go Here 
+                <!- Project Details Go Here 
                 <h2 class="text-uppercase">Project Name</h2>
                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                 <img class="img-fluid d-block mx-auto" src="img/portfolio/02-full.jpg" alt="">
@@ -1894,7 +1931,7 @@
           <div class="row">
             <div class="col-lg-8 mx-auto">
               <div class="modal-body">
-                <!-- Project Details Go Here 
+                <!- Project Details Go Here 
                 <h2 class="text-uppercase">Project Name</h2>
                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                 <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
@@ -1928,7 +1965,7 @@
           <div class="row">
             <div class="col-lg-8 mx-auto">
               <div class="modal-body">
-                <!-- Project Details Go Here
+                <!- Project Details Go Here
                 <h2 class="text-uppercase">Project Name</h2>
                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                 <img class="img-fluid d-block mx-auto" src="static/img/portfolio.jpg" alt="">
@@ -1962,7 +1999,7 @@
           <div class="row">
             <div class="col-lg-8 mx-auto">
               <div class="modal-body">
-                <!-- Project Details Go Here 
+                <!- Project Details Go Here 
                 <h2 class="text-uppercase">Project Name</h2>
                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                 <img class="img-fluid d-block mx-auto" src="../static/img/houses3.jpg" alt="">

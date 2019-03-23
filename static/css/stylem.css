@@ -12,6 +12,7 @@ body,
   margin: 0;
 }
 
+
 #map_high20 {
   height: 700px;
   padding: 0;
@@ -65,5 +66,5 @@ body,
 
 
 .list-group-item{
-  background-color: #fed136;
+  background-color: rgb(214, 247, 192);
 }

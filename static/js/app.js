@@ -104,8 +104,8 @@ function plotHappinessVsRent(data){
 
   //Map
   HvRMap = L.map('map-happinessvsrent',
-      {center:[34,-118],
-        zoom:4,
+      {center:[35,-96],
+        zoom:4.5,
         layers: [light, happinessLayer,low10Layer,high10Layer]});
   //Controls
 

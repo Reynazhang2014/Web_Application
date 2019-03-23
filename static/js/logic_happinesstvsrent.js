@@ -92,7 +92,7 @@ function plotHappinessVsRent(data){
 
   //Map
   map2 = L.map('map-happinessvsrent',
-      {center:[34,-118],
+      {center:[35,-100],
         zoom:4,
         layers: [light, happinessLayer,low10Layer,high10Layer]});
   //Controls

@@ -29,8 +29,8 @@ Base.prepare(db.engine, reflect=True)
 #print(Base.classes.keys())
 # Save references to each table
 city_rent_price=Base.classes.city_rent_price
-# stmt = db.session.query(city_rent_price).statement
-# df= pd.read_sql_query(stmt, db.session.bind)
+stmt = db.session.query(city_rent_price).limit(10000).statement
+df= pd.read_sql_query(stmt, db.session.bind)
 print("=======================")
 
 @app.route("/")
@@ -43,13 +43,6 @@ def filterRent():
     print("=======================")
     print(request.data)
     print("=======================")
-    filterdict = json.loads(request.data)
-    # print(filterdict)
-    # print(filterdict.keys()[0])
-    year=filterdict["Year"]
-    # print(year)
-    stmt = db.session.query(city_rent_price).filter(city_rent_price.Year == year).statement
-    df= pd.read_sql_query(stmt, db.session.bind)
     tempdf=df
     ave_yearly_price=tempdf.groupby(["City","Year","State","County","Metro"])[["Price_Persq","Price_Total","Lat","Lon","Density","Population","PopulationRank","HappiestRank"]]\
                             .agg({'Price_Persq':'mean','Price_Total':'mean',\
@@ -60,27 +53,22 @@ def filterRent():
                             .sort_values(by="AvePricePersq",ascending=False)
     # print(tempdf.head(10))
     if request.data:
+        filterdict = json.loads(request.data)
+        print(filterdict)
         for k,v in filterdict.items():
             
             if k == 'maxRent':
                 ave_yearly_price = ave_yearly_price[ave_yearly_price['AvePriceTotal'] <= float(v)]
-                # print(ave_yearly_price['AvePriceTotal'].head())
+                print(ave_yearly_price['AvePriceTotal'].head())
             elif k == 'minRent':
                 ave_yearly_price = ave_yearly_price[ave_yearly_price['AvePriceTotal'] >= float(v)]
             else:
                 ave_yearly_price=ave_yearly_price[ave_yearly_price[k].astype(str).str.upper()==v.upper()]
-        # print(ave_yearly_price)
+        print(ave_yearly_price)
     return ave_yearly_price.to_json(orient='records')
 
 @app.route("/yearlyrent",methods=['GET','POST'])
 def yearlyrent():
-    filterdict = json.loads(request.data)
-    # print(filterdict)
-    # print(filterdict.keys()[0])
-    year=filterdict["Year"]
-    # print(year)
-    stmt = db.session.query(city_rent_price).filter(city_rent_price.Year == year).statement
-    df= pd.read_sql_query(stmt, db.session.bind)
     tempdf2= df
     if request.data:
         filterdict = json.loads(request.data)
@@ -100,13 +88,6 @@ def yearlyrent():
 
 @app.route("/happinessvsrent",methods=['GET','POST'])
 def happinessvsrent():
-    filterdict = json.loads(request.data)
-    # print(filterdict)
-    # print(filterdict.keys()[0])
-    year=filterdict["Year"]
-    # print(year)
-    stmt = db.session.query(city_rent_price).filter(city_rent_price.Year == year).statement
-    df= pd.read_sql_query(stmt, db.session.bind)
     tempdf= df
     if request.data:
         filterdict = json.loads(request.data)

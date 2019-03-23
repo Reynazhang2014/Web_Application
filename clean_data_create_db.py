@@ -66,7 +66,7 @@ happy = pd.read_excel('./db/happiest_cities.xlsx')
 happy.rename(columns = {'City':'City_St'},inplace = True)
 happy['City'] = happy['City_St'].str.split(', ').apply(lambda x: x[0])
 happy['State'] = happy['City_St'].str.split(', ').apply(lambda x: x[1])
-happy = happy[['Total Score','City','State']].rename(columns = {'Total Score':'HappiestRank'})
+happy = happy[['Happiest City Ranking','City','State']].rename(columns = {'Happiest City Ranking':'HappiestRank'})
 df = pd.merge(df1,happy, on = ['City','State'], how = 'left')
 
 #store date frame to sqlite

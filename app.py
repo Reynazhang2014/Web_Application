@@ -102,7 +102,7 @@ def happinessvsrent():
                             .rename(columns={"Price_Persq":"AvePricePersq","Price_Total":"AvePriceTotal"})
     tempdf2.fillna(0,inplace = True)                       
 
-    happinessvsrent={"happiest":tempdf2.sort_values(by="HappiestRank",ascending=False)[:20].to_dict('records'),\
+    happinessvsrent={"happiest":tempdf2[tempdf2['HappiestRank'] != 0.0].sort_values(by="HappiestRank",ascending=True)[:20].to_dict('records'),\
                      "highest10":tempdf2.sort_values(by="AvePricePersq",ascending=False)[:20].to_dict('records'),\
                      "lowest10":tempdf2.sort_values(by="AvePricePersq",ascending=True)[:20].to_dict('records')}
    

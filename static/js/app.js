@@ -31,13 +31,13 @@ function plotHappinessVsRent(data){
       maxZoom: 6,
       minZoom: 4,
       //can Also set id to mapbox.dark
-      id: 'mapbox.dark',
+      id: 'mapbox.streets',
       accessToken: API_KEY
   });
 
   var baseMaps = {
-    'Light': light,
-    'Dark View': dark
+    'Light View': light,
+    'Streets View': dark
   };
   //Overlays
   //layerGroup is an empty list or container we can add things to like markers
@@ -71,8 +71,8 @@ function plotHappinessVsRent(data){
   var happinessMarkers=data.happiest.map( row =>{
     return L.marker([row.Lat,row.Lon],{icon:icons.happy}).bindPopup(
       `<h4> <font color="orange">${row.City}, ${row.State}</font></h4>
-      <h4> $ monthly rent: ${row.AvePriceTotal} </h4>
-      <h4> $ per sqft: ${row.AvePricePersq.toFixed(2)} </h4>
+      <h4> $ Monthly rent: ${row.AvePriceTotal.toFixed(2)} </h4>
+      <h4> $ Per sqft: ${row.AvePricePersq.toFixed(2)} </h4>
       <h4> Population: ${row.Population} </h4>
       <h4> Happiness Rank: ${row.HappiestRank} </h4>`);
   });
@@ -82,8 +82,8 @@ function plotHappinessVsRent(data){
   var high10Markers=data["highest10"].map( row =>{
     return L.marker([row.Lat,row.Lon],{icon:icons.high10}).bindPopup(
       `<h4> <font color="red">${row.City}, ${row.State}</font></h4>
-      <h4> $ monthly rent: ${row.AvePriceTotal} </h4>
-      <h4> $ per sqft: ${row.AvePricePersq.toFixed(2)} </h4>
+      <h4> $ Monthly rent: ${row.AvePriceTotal.toFixed(2)} </h4>
+      <h4> $ Per sqft: ${row.AvePricePersq.toFixed(2)} </h4>
       <h4> Population: ${row.Population} </h4>`);
   });
   var high10Layer=L.layerGroup(high10Markers);
@@ -91,8 +91,8 @@ function plotHappinessVsRent(data){
   var low10Markers=data["lowest10"].map( row =>{
     return L.marker([row.Lat,row.Lon],{icon:icons.low10}).bindPopup(
       `<h4> <font color="green">${row.City}, ${row.State}</font></h4>
-      <h4> $ monthly rent: ${row.AvePriceTotal} </h4>
-      <h4> $ per sqft: ${row.AvePricePersq.toFixed(2)} </h4>
+      <h4> $ Monthly rent: ${row.AvePriceTotal.toFixed(2)} </h4>
+      <h4> $ Per sqft: ${row.AvePricePersq.toFixed(2)} </h4>
       <h4> Population: ${row.Population} </h4>`);
   });
   var low10Layer=L.layerGroup(low10Markers);
@@ -119,12 +119,12 @@ function plotHappinessVsRent(data){
 
       var div = L.DomUtil.create('div', 'info legend');
 
-      div.innerHTML = `<p>
+      div.innerHTML = `
+      <p><i style="background:darkred"></i><font color="black" size = "5px">Year: ${priceFilters.Year}</font></p>      
+      <p><i style="background:darkred"></i><font color="red" size = "5px">$$ Highest Rent</font></p>
       
-      <i style="background:darkred"></i><font color="red">$$ Highest rent</font></p>
-      
-      <i style="background:darkred"></i><font color="green">$ Lowest rent</font></p>  
-      <i style="background:darkred"></i><font color="orange">Happiest cities</font></p>               `;
+      <p><i style="background:darkred"></i><font color="green" size = "5px">$ Lowest Rent</font></p>  
+      <p><i style="background:darkred"></i><font color="orange" size = "5px">Happiest Cities</font></p>               `;
           
       // loop through our density intervals and generate a label with a colored square for each interval
       
@@ -142,21 +142,39 @@ function plotHappinessVsRent(data){
               type: "bar",
               text: data["highest10"].map(r => r["State"]),
               textposition: 'bottom',
-              color:"red",
-              name: "highest"
+              marker:{color:"red"},
+              name: "Highest Rent  "
             };
 
   var trace2={x: data["lowest10"].map(r => r["City"]),
               y: data["lowest10"].map(r => r["AvePriceTotal"]),
             type: "bar",
-            name: "lowest"
+            marker: {color:"green"},
+            name: "Lowest Rent"
           };          
   var data_list=[trace1,trace2];  
   
   var layout = {
-    title: "Monthly rent for most expensive and least expensive cities",
-    xaxis:{title:"City"},
-    yaxis:{title:"Monthly Rent"}
+    title: `Monthly rent for most expensive and least expensive cities in ${priceFilters.Year}`,
+    xaxis:{title:"City",
+          automargin:true},
+    yaxis:{title:"Monthly Rent",
+          automargin:true},
+    font:{
+      size:18,
+    }
+    // ,margin:{
+    //   l:5,
+    //   r:5,
+    //   pad: 100 
+    // }
+    ,legend:{
+      font:15,
+      traceorder:"normal",
+      yanchor:'top',
+      xanchor:'left',
+      orientation:"v"
+    }
   };
   Plotly.newPlot("plot1",data_list,layout)
 
@@ -190,9 +208,11 @@ function plotfilterMap(data){
   data.forEach( row =>{
     if(row.Lat && row.Lon){
       cities.addLayer(L.marker([row.Lat,row.Lon],{icon:myicon}).bindPopup(
-        `<h4> City: ${row.City}</h4> <hr> 
-        <h5> $ monthly rent: ${row.AvePriceTotal.toFixed(2)} </h5>
-        <h5> $ per sqft: ${row.AvePricePersq.toFixed(2)} </h5>
+        `<h4>${row.City}, ${row.State}</h4>
+
+         <hr> 
+        <h5> $ Monthly rent: ${row.AvePriceTotal.toFixed(2)} </h5>
+        <h5> $ Per sqft: ${row.AvePricePersq.toFixed(2)} </h5>
         <h5> Population: ${row.Population} </h5>`
         ));
       }

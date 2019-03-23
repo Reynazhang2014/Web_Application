@@ -25,7 +25,7 @@
 
   <!-- Custom styles for this template -->
   <link href="static/css/agency.css" rel="stylesheet">
-  <link href="static/css/stylem.css" rel="stylesheet">
+  <link href="static/css/style.css" rel="stylesheet">
  <!-- =======   map libraries  ============================================================================= -->
  <!-- <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> *** interfere with table***--> 
 
@@ -38,8 +38,6 @@
  <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
  <link rel="stylesheet" href="static/css/leaflet.extra-markers.min.css">
 
- <!-- map CSS -->
- <!-- <link rel="stylesheet" type="text/css" href="static/css/stylem.css"> -->
 
 
  <!-- ================================================================================================================== -->
@@ -61,14 +59,14 @@
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#services">Happiest Cities</a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#filter">City Search</a>
+          </li>
          
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#happiness">Comparison Map</a>
           </li>
-
-          <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#filter">City Search</a>
-            </li>
             
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#team">Team</a>
@@ -1600,10 +1598,64 @@
     </div>
   </section>
 
- 
+    <!-- Old Portfolio Grid / New Charts -->
+    <section class="bg-light" id="filter" style="background-color: whitesmoke">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">City Search</h2>
+            <h2 class="section-subheading text-muted">Enter your monthly rent budget criteria below to find your city match</h2>
+          </div>
+        </div>
+        <!-- Filter Table-->
+        <div class="row margin-top-50">
+            <div class="col-md-2">
+              <aside class="filters">
+                <div class="panel panel-default">
+                  <div class="panel-heading">Filter Search</div>
+                  <div class="panel-body">
+                    <div class="form-group">
+                      <ul class="list-group" id="filters">
+                        <li class="price-filter list-group-item">
+                          <label for="year">Enter year (2012-2017)</label>
+                          <input class="form-control" id="Year" type="text" placeholder="2015">
+                        </li>
+                        <li class="price-filter list-group-item">
+                          <label for="state">Enter State (2 letter code)</label>
+                          <input class="form-control" id="State" type="text" placeholder="CA">
+                        </li>
+                        <li class="price-filter list-group-item">
+                          <label for="maxRent">Enter highest desired rent</label>
+                          <input class="form-control" id="maxRent" type="text" placeholder=3000>
+                        </li>
+                        <li class="price-filter list-group-item">
+                          <label for="minRent">Enter lowest desired rent</label>
+                          <input class="form-control" id="minRent" type="text" placeholder=1000>
+                        </li>
+                        <li class="list-group-item">
+                          <button type="button" class="btn btn-default btn-filter">Click here to filter</button>
+                        </li>
+                      </ul>
+                      
+                    </div>
+                  </div>
+                </div>
+              </aside>
+            </div>
+              <div class="col-lg-10 text-center">
+                  <div id="map-area">
+                  </div>
+                </div>
+    
+      </div>
+
+        
+      </div>
+    </section>
+
 
   <!-- about section is for plotting maps -->
-  <section class="bg-light" id="happiness" style="background-color: whitesmoke">
+  <section id="happiness" style="background-color: whitesmoke">
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-12 text-center">
@@ -1640,60 +1692,6 @@
     
   </section>
 
-   <!-- Old Portfolio Grid / New Charts -->
-   <section id="filter" style="background-color: whitesmoke">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">City Search</h2>
-            <h2 class="section-subheading text-muted">Enter your monthly rent budget criteria below to find your city match</h2>
-          </div>
-        </div>
-        <!-- Filter Table-->
-        <div class="row margin-top-50">
-            <div class="col-md-2">
-              <aside class="filters">
-                <div class="panel panel-default">
-                  <div class="panel-heading">Filter Search</div>
-                  <div class="panel-body">
-                    <div class="form-group">
-                      <ul class="list-group" id="filters">
-                        <li class="price-filter list-group-item">
-                          <label for="year">Enter a year (2012-2017)</label>
-                          <input class="form-control" id="Year" type="text" placeholder="2015">
-                        </li>
-                        <li class="price-filter list-group-item">
-                          <label for="state">Enter a State</label>
-                          <input class="form-control" id="State" type="text" placeholder="CA">
-                        </li>
-                        <li class="price-filter list-group-item">
-                          <label for="maxRent">Enter the highest desired rent</label>
-                          <input class="form-control" id="maxRent" type="text" placeholder=3000>
-                        </li>
-                        <li class="price-filter list-group-item">
-                          <label for="minRent">Enter the lowest desired rent</label>
-                          <input class="form-control" id="minRent" type="text" placeholder=1000>
-                        </li>
-                        <li class="list-group-item">
-                          <button type="button" class="btn btn-default btn-filter">Click here to filter</button>
-                        </li>
-                      </ul>
-                      
-                    </div>
-                  </div>
-                </div>
-              </aside>
-            </div>
-              <div class="col-lg-10 text-center">
-                  <div id="map-area">
-                  </div>
-                </div>
-    
-      </div>
-
-        
-      </div>
-    </section>
 
   <!-- Team -->
   <section class="bg-light" id="team">
@@ -1788,33 +1786,7 @@
     </div>
   </section>
 
-  <!-- Clients -->
-  <!-- <section class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3 col-sm-6">
-          <a href="#">
-            <img class="img-fluid d-block mx-auto" src="img/logos/envato.jpg" alt="">
-          </a>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <a href="#">
-            <img class="img-fluid d-block mx-auto" src="img/logos/designmodo.jpg" alt="">
-          </a>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <a href="#">
-            <img class="img-fluid d-block mx-auto" src="img/logos/themeforest.jpg" alt="">
-          </a>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <a href="#">
-            <img class="img-fluid d-block mx-auto" src="img/logos/creative-market.jpg" alt="">
-          </a>
-        </div>
-      </div>
-    </div>
-  </section> -->
+
 
   <!-- Footer -->
   <footer>
@@ -1823,244 +1795,16 @@
           <div class="col-lg-12 text-center">
               <span class="copyright">Copyright &copy; Data Analytics Bootcamp 2019</span>
           </div>
-        <!-- <div class="col-md-4">
-          <ul class="list-inline social-buttons">
-            <li class="list-inline-item">
-              <a href="#">
-                <i class="fab fa-twitter"></i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </li>
-          </ul>
-        </div> -->
-        <!-- <div class="col-md-4">
-          <ul class="list-inline quicklinks">
-            <li class="list-inline-item">
-              <a href="#">Privacy Policy</a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#">Terms of Use</a>
-            </li>
-          </ul>
-        </div> -->
+       
       </div>
     </div>
   </footer>
 
-  <!-- Portfolio Modals -->
 
-  <!-- Modal 1 -->
-  <!-- <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-          <div class="lr">
-            <div class="rl"></div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 mx-auto">
-              <div class="modal-body">
-                <!- Project Details Go Here 
-                <h2 class="text-uppercase">Project Name</h2>
-                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/01-full.jpg" alt="">
-                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                <ul class="list-inline">
-                  <li>Date: January 2017</li>
-                  <li>Client: Threads</li>
-                  <li>Category: Illustration</li>
-                </ul>
-                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                  <i class="fas fa-times"></i>
-                  Close Project</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
 
-  <!-- Modal 2 -->
-  <!-- <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-          <div class="lr">
-            <div class="rl"></div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 mx-auto">
-              <div class="modal-body">
-                <!- Project Details Go Here 
-                <h2 class="text-uppercase">Project Name</h2>
-                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/02-full.jpg" alt="">
-                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                <ul class="list-inline">
-                  <li>Date: January 2017</li>
-                  <li>Client: Explore</li>
-                  <li>Category: Graphic Design</li>
-                </ul>
-                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                  <i class="fas fa-times"></i>
-                  Close Project</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
 
-  <!-- Modal 3 -->
-  <!-- <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-          <div class="lr">
-            <div class="rl"></div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 mx-auto">
-              <div class="modal-body">
-                <!- Project Details Go Here 
-                <h2 class="text-uppercase">Project Name</h2>
-                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
-                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                <ul class="list-inline">
-                  <li>Date: January 2017</li>
-                  <li>Client: Finish</li>
-                  <li>Category: Identity</li>
-                </ul>
-                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                  <i class="fas fa-times"></i>
-                  Close Project</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
 
-  <!-- Modal 4 -->
-  <!-- <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-          <div class="lr">
-            <div class="rl"></div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 mx-auto">
-              <div class="modal-body">
-                <!- Project Details Go Here
-                <h2 class="text-uppercase">Project Name</h2>
-                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                <img class="img-fluid d-block mx-auto" src="static/img/portfolio.jpg" alt="">
-                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                <ul class="list-inline">
-                  <li>Date: January 2017</li>
-                  <li>Client: Lines</li>
-                  <li>Category: Branding</li>
-                </ul>
-                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                  <i class="fas fa-times"></i>
-                  Close Project</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
-  <!-- Modal 5 -->
-  <!-- <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-          <div class="lr">
-            <div class="rl"></div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 mx-auto">
-              <div class="modal-body">
-                <!- Project Details Go Here 
-                <h2 class="text-uppercase">Project Name</h2>
-                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                <img class="img-fluid d-block mx-auto" src="../static/img/houses3.jpg" alt="">
-                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                <ul class="list-inline">
-                  <li>Date: March 2019</li>
-                  <li>Client: Zillow</li>
-                  <li>Category: Website Design</li>
-                </ul>
-                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                  <i class="fas fa-times"></i>
-                  Close Project</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
-  <!-- Modal 6 -->
-  <!-- <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-          <div class="lr">
-            <div class="rl"></div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 mx-auto">
-              <div class="modal-body"> -->
-                <!-- Project Details Go Here 
-                <h2 class="text-uppercase">Project Name</h2>
-                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/06-full.jpg" alt="">
-                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                <ul class="list-inline">
-                  <li>Date: January 2017</li>
-                  <li>Client: Window</li>
-                  <li>Category: Photography</li>
-                </ul>
-                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                  <i class="fas fa-times"></i>
-                  Close Project</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
+=
 
   <!-- Bootstrap core JavaScript -->
   <script src="static/vendor/jquery/jquery.min.js"></script>
@@ -2076,7 +1820,7 @@
   <script src="static/js/contact_me.js"></script>
 
   <!-- Custom scripts for this template -->
-  <script src="static/js/agency.min.js"></script>
+  <!-- <script src="static/js/agency.min.js"></script> -->
 
   <!-- MomentJS -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>  
